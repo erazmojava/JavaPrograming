@@ -35,16 +35,6 @@ public class Zadatak4 {
     }
 
     public static double getResult(double first, double second, String operation){
-        if (operation.equals("+")){
-            return first + second;
-        } else if (operation.equals("-")){
-            return first - second;
-        } else if (operation.equals("*")){
-            return first * second;
-        }if (operation.equals("/")){
-            return first / second;
-        } else {
-            return 0;
-        }
+       return 0;
     }
 }

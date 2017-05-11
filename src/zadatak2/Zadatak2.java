@@ -14,12 +14,7 @@ public class Zadatak2 {
         Radnik plataRadnik = radnikArrayList.get(0);
         Radnik godineRadnik = radnikArrayList.get(0);
         for (Radnik radnik : radnikArrayList){
-            if (radnik.getPlata() > plataRadnik.getPlata()){
-                plataRadnik = radnik;
-            }
-            if (radnik.getGodine() > godineRadnik.getGodine()){
-                godineRadnik = radnik;
-            }
+
         }
         System.out.printf("Radnik %s %s ima najveću platu(%s).\n",
                 plataRadnik.getIme(), plataRadnik.getPrezime(), plataRadnik.getPlata());

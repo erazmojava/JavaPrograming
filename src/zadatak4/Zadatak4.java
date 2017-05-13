@@ -13,16 +13,16 @@ public class Zadatak4 {
         String operation = "+";
 
         System.out.printf("Prvi broj: ");
-        while (s.hasNext()){
-            if(i == 0){
+        while (s.hasNext()) {
+            if (i == 0) {
                 firstNumber = s.nextDouble();
                 System.out.printf("Drugi broj: ");
             }
-            if(i == 1){
+            if (i == 1) {
                 secondNumber = s.nextDouble();
                 System.out.printf("Operacija: ");
             }
-            if(i == 2){
+            if (i == 2) {
                 s.nextLine();
                 operation = s.nextLine();
                 s.close();
@@ -31,10 +31,21 @@ public class Zadatak4 {
 
             i++;
         }
-        System.out.printf("Rezultat ove operacije je: %s", getResult(firstNumber,secondNumber, operation));
+        System.out.printf("Rezultat ove operacije je: %s", getResult(firstNumber, secondNumber, operation));
     }
 
-    public static double getResult(double first, double second, String operation){
-       return 0;
+    private static double getResult(double first, double second, String operation) {
+        switch (operation) {
+            case "+":
+                return first + second;
+            case "-":
+                return first - second;
+            case "*":
+                return first * second;
+            case "/":
+                return first / second;
+            default:
+                return 0;
+        }
     }
 }

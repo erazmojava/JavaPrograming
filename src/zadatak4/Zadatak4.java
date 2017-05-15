@@ -31,6 +31,7 @@ public class Zadatak4 {
 
             i++;
         }
+        System.out.println(22%2);
         System.out.printf("Rezultat ove operacije je: %s", getResult(firstNumber, secondNumber, operation));
     }
 

@@ -1,19 +1,22 @@
-https://goo.gl/forms/XXEGpwPAqLtOLVSi1
+Test1: https://goo.gl/forms/XXEGpwPAqLtOLVSi1
+Test2: https://goo.gl/forms/7Id2iVMLjCAxw1ZD3
 
-             T1          T2          T3          T4
-Amir        16/23
 
-Armin       15/23
+Ime            T1          T2          T3          T4
 
-Jasmin      09/23
+Amir          16/23
 
-Ervin       17/23
+Armin         15/23
 
-Mahir       14/23
+Jasmin        09/23
 
-Omar        12/23
+Ervin         17/23
 
-Emin        10/23
+Mahir         14/23
+
+Omar          12/23
+
+Emin          10/23
 
 Sabit
 

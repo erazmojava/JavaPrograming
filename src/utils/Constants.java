@@ -11,7 +11,7 @@ public class Constants {
     public static ArrayList<Integer> getNumberList(){
         Random r = new Random();
         for (int i = 0; i< 20; i++){
-            numberList.add(r.nextInt());
+            numberList.add(r.nextInt(1000) + 1);
         }
         return numberList;
     }

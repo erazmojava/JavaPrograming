@@ -1,3 +1,18 @@
+1. Napraviti program koji prima sa ulaza 5 brojeva i ispisuje ih redoslijedom, od većeg ka manjem.
 
+   Primjer:
+
+   Unesite 5 brojeva:
+   1
+   5
+   3
+   2
+   6
+
+   Unešeni brojevi sortirani silazno su:
+   6 5 3 2 1
+
+   Za sortiranje nije dozvoljeno koristiti Collections, sortirati for petljm i if-else
+   Dozvoljeno koristenje ArrayList-a
 
 

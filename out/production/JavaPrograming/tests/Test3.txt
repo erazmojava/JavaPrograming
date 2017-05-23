@@ -1,0 +1,60 @@
+1. Napraviti klasu Auto koja ima sljedeca polja:
+      year(int)
+      color(String)(red, blue, green)
+      name(String)
+      country(String)
+      transmission_type(String)(manual or automatic)
+      transmission_steps(int)(1, 2 , 3, 4, 5)
+
+   U main-u ispisati sljedeće:
+        a) auta sortirana po godini proizvodnje
+        b) auta koja imaju boju auta crvenu
+        c) auta koja imaju mjenjač brzina manualni
+        d) auta koja imaju vise od 4 brzine
+        e) auta koja nisu proizvedena u Italiji(auta treba da budu sortirana po godini prozvodnje)
+
+   Listu auta mozete pronaci u paketu utils u klasi
+   Constants postoji metod getAutoList();
+
+   Results:
+
+   a)
+    Auto by Year:
+    2017  Jaguar
+    2016  Mercedes
+    2014  Mazda
+    2010  Lexus
+    2009  Golf
+    2006  Toyota
+    2002  Lancia
+    2000  Alfa
+    1990  Yugo
+
+    b)
+    Auto by color RED:
+    red  Mazda
+    red  Lancia
+    red  Lexus
+
+    c)
+    Auto by transmission manual and transmission step 4:
+    manual  4  Alfa
+    manual  4  Yugo
+
+    d)
+    Auto by transmission steps over 4:
+    5  Mazda
+    5  Golf
+    6  Mercedes
+    5  Toyota
+    8  Jaguar
+
+    e)
+    2017  Great Brittany  Jaguar
+    2016  Germany  Mercedes
+    2014  Japan  Mazda
+    2010  China  Lexus
+    2009  Germany  Golf
+    2006  Japan  Toyota
+    1990  Serbia  Yugo
+

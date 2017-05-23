@@ -1,0 +1,1759 @@
+Index: src/helps/Class.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/helps/Class.txt	(revision )
++++ src/helps/Class.txt	(revision )
+@@ -0,0 +1,115 @@
++Kako se pravi klasa?
++
++modifikator kljucna riječ class ime_klase otvorena velika zagrada
++
++modifikatori:
++    public - java klasa i u jednom fajlu moze biti samo jedna javna klasa.
++    private - privatna klasa koja se nalazi unutar neke public klase
++
++Ime klase počinje velikim slovom, ako je ime klase sastavljeno od vise riječi, primjenjuje se
++CamelCase.
++CamelCase - svaka riječ počinje sa velikim slovom
++primjer:
++    MojaPrvaKlasa - ime klase je sastavljeno od tri riječi gdje svaka počinje velikim slovom
++
++Ime public klase mora da bude identično kao i ime fajla.
++**************************************************************
++*                                                            *
++*             Ime klase počinje velikim slovom               *
++*                                                            *
++**************************************************************
++
++
++
++*******************   Polja klase ***************************************
++
++modifikator tip ime_polja;
++polja u klasi počinju malim slovom. Ako polje klase ima ime od vise riječi, onda se primjenjuje camelCase.
++
++primjer:
++    private int mojPrviClan - prva rijec počinje malim slovom sve ostale počinju velikim slovom
++
++********************* Konstruktor ***************************
++
++modifikator ImeKonstruktora(polja koja prima kostrutor){
++tijelo konstrutora
++}
++Svaka klasa mora da ima default konstruktor
++Svaka klasa moze da ima vise knstruktora
++modifikatori:
++    public  - javan konstruktor i mozemo mu pristupiti iz bilo koje druge klase
++    private - privatan konstrutor i mozemo mu pristupiti samo unutar te klase u kojoj se nalazi
++    protected - zaštićeni konstruktor kojem mozemo pritupiti u bilo kojoj klasi koja naljedjuje klasu koja
++                ima protected konstruktor
++WARNING:
++            Ime konstruktora mora da bude isto kao ime klase
++
++********************************** metodi *********************************
++
++modifikator povratni_tip ime_metoda (Parametri koje prima){
++tijelo
++}
++modifikatori:
++    public -    javan metod mozemo mu pristupiti u bilo kojoj klasi u kojoj imamo instancu klase u kojoj se
++                nalazi metod
++    private-    privatan metod i mozemo mu pristuputi samo unutar date klase u kojoj je konstruisan
++    protected-  zaštićen metod i mozemo mu pristupiti iz bilo koje klase koja nasljedjuje klasu koja ima
++                protected metod.
++Dodatni modifikator
++    static - statičan metod na nivou memorije, postoji samo jedna kopija metoda, moze biti pozvan u bilo kojoj
++             klasi, nije potrebna instanca. Unutar statičnog metoda mozemo korzsiti polja klase samo koja su
++             staticna.
++Povratni tip:
++    Povratni tip moze biti bilo koji validan java tip(int, String, void, boolean, etc.)
++Ime metoda - treba da bude intuitivno da bez gledanja sadrzaja metoda znao sta je zadatak metoda
++Parametri koje prima metod - moze biti neograničen broj parametara i mogu biti bilo kojeg java validnog tipa
++
++*************************** Primjer klase sa poljima, konstrutorom, metodaima ***********************
++
++public class MojaPrvaKlasa {
++    polja:
++    private int polje1;
++    private double polje2;
++
++    konstruktor:
++
++    public MojaPrvaKlasa(){} default konstruktor
++
++    public MojaPrvaKlasa(int polje1, double polje2){
++        this.polje1 = polje1;
++        this.polje2 = polje2;
++     }
++
++     metodi:
++     public void setPolje2(int polje1){ // ako metoda ima povratni tip void ne treba return
++        this.polje1 = polje1;
++     }
++     public int getPolje1(){ // ako metod ima povratni tip koji nije void onda treba return i tip_povratnog_tipa
++        return this.polje1;
++     }
++
++     public static int getZbirPolja(){
++        return this.polje1 + this.polje2;
++     }
++
++}
++
++************************* poziv ne statičnog metoda *************************************
++
++    ako metod nije statican potrebna nam je instanca klase.
++    Primjer:
++         MojaPrvaKlasa klasa = new MojaPrvaKlasa();
++         klasa.getPolje1();
++
++******************************* poziv staticnog metoda ************************************
++
++Ako je metod statican ne treba nam instanca klase:
++Primjer:
++        MojaPrvaKlasa.getZbirPolja() ne treba instanca klase, ne treba new, direktno na ime klase
++                                     zovemo metod
++
++***************************************************************************
++*         Nikad ne praviti klasu unutar main funkcije                     *
++*         Uvijek kasu pravimo desni klik na paket i new class             *
++***************************************************************************
++
+Index: src/helps/Ispis.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/helps/Ispis.txt	(revision )
++++ src/helps/Ispis.txt	(revision )
+@@ -0,0 +1,14 @@
++ System.out.print(objekat);
++                ispisuje objekt bilo kojeg tipa
++
++
++
++System.out.println(objakat);
++                ispisuje objekat bilo kojeg tipa i prebacuje ispis u novi red
++
++System.out.println();
++                prebacuje u novi red
++
++
++System.out.printf("%s", neki tip);
++                    neki tip moze biti String, float.. Ispisuje neki tip
+\ No newline at end of file
+Index: out/production/JavaPrograming/zadatak6/Zadatak6.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- out/production/JavaPrograming/zadatak6/Zadatak6.txt	(revision )
++++ out/production/JavaPrograming/zadatak6/Zadatak6.txt	(revision )
+@@ -0,0 +1,13 @@
++1. Napraviti klasu Pravougaonik koja ima sljedeća polja:
++    stranicu a
++    stranicu b.
++
++    Implementirati sve potrebne metode kao i konstuktor koji
++     prima stanicu a i stanicu b.
++    Dodatno implementirati get metode za dobijanje povrsine,
++     obima i diagonale.
++        obim       {a*b}
++        povrsina   {2*(a+b)}
++        diagonala  {sqrt(a*a + b*b} //Math.sqrt(broj) metod za
++         pronalazak korijena broja
++
+Index: src/zadatak10/Zadatak10
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/zadatak10/Zadatak10	(revision )
++++ src/zadatak10/Zadatak10	(revision )
+@@ -0,0 +1,1 @@
++1. Skontati svih 9 zadataka.
+\ No newline at end of file
+Index: src/utils/GitCommands.txt
+===================================================================
+--- src/utils/GitCommands.txt	(date 1495473185000)
++++ out/production/JavaPrograming/utils/GitCommands.txt	(revision )
+@@ -1,0 +1,0 @@
+Index: src/zadatak9/Auto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/zadatak9/Auto.java	(revision )
++++ src/zadatak9/Auto.java	(revision )
+@@ -0,0 +1,71 @@
++package zadatak9;
++
++/**
++ * Created by osman on 5/22/17.
++ */
++public class Auto {
++    private String name;
++    private int year;
++    private int transmission_steps;
++    private String color;
++    private String transmission_type;
++    private String country;
++
++    public Auto(String name, int year, int transmission_steps,
++                String color, String transmission_type, String country) {
++        this.name = name;
++        this.year = year;
++        this.transmission_steps = transmission_steps;
++        this.color = color;
++        this.transmission_type = transmission_type;
++        this.country = country;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public int getYear() {
++        return year;
++    }
++
++    public void setYear(int year) {
++        this.year = year;
++    }
++
++    public int getTransmission_steps() {
++        return transmission_steps;
++    }
++
++    public void setTransmission_steps(int transmission_steps) {
++        this.transmission_steps = transmission_steps;
++    }
++
++    public String getColor() {
++        return color;
++    }
++
++    public void setColor(String color) {
++        this.color = color;
++    }
++
++    public String getTransmission_type() {
++        return transmission_type;
++    }
++
++    public void setTransmission_type(String transmission_type) {
++        this.transmission_type = transmission_type;
++    }
++
++    public String getCountry() {
++        return country;
++    }
++
++    public void setCountry(String country) {
++        this.country = country;
++    }
++}
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(revision )
++++ .idea/modules.xml	(revision )
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/JavaPrograming.iml" filepath="$PROJECT_DIR$/JavaPrograming.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: out/production/JavaPrograming/tests/Test3.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- out/production/JavaPrograming/tests/Test3.txt	(revision )
++++ out/production/JavaPrograming/tests/Test3.txt	(revision )
+@@ -0,0 +1,60 @@
++1. Napraviti klasu Auto koja ima sljedeca polja:
++      year(int)
++      color(String)(red, blue, green)
++      name(String)
++      country(String)
++      transmission_type(String)(manual or automatic)
++      transmission_steps(int)(1, 2 , 3, 4, 5)
++
++   U main-u ispisati sljedeće:
++        a) auta sortirana po godini proizvodnje
++        b) auta koja imaju boju auta crvenu
++        c) auta koja imaju mjenjač brzina manualni
++        d) auta koja imaju vise od 4 brzine
++        e) auta koja nisu proizvedena u Italiji(auta treba da budu sortirana po godini prozvodnje)
++
++   Listu auta mozete pronaci u paketu utils u klasi
++   Constants postoji metod getAutoList();
++
++   Results:
++
++   a)
++    Auto by Year:
++    2017  Jaguar
++    2016  Mercedes
++    2014  Mazda
++    2010  Lexus
++    2009  Golf
++    2006  Toyota
++    2002  Lancia
++    2000  Alfa
++    1990  Yugo
++
++    b)
++    Auto by color RED:
++    red  Mazda
++    red  Lancia
++    red  Lexus
++
++    c)
++    Auto by transmission manual and transmission step 4:
++    manual  4  Alfa
++    manual  4  Yugo
++
++    d)
++    Auto by transmission steps over 4:
++    5  Mazda
++    5  Golf
++    6  Mercedes
++    5  Toyota
++    8  Jaguar
++
++    e)
++    2017  Great Brittany  Jaguar
++    2016  Germany  Mercedes
++    2014  Japan  Mazda
++    2010  China  Lexus
++    2009  Germany  Golf
++    2006  Japan  Toyota
++    1990  Serbia  Yugo
++
+Index: src/helps/Petlje.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/helps/Petlje.txt	(revision )
++++ src/helps/Petlje.txt	(revision )
+@@ -0,0 +1,27 @@
++
++                for(int i = 0; i < 10; i++){
++                    neki kod
++                }
++  10 puta se izvrsava kod iz tijela for petlje u nasem slucaju izvrsava se 10 puta "neki kod":
++
++
++**********************************************************************************************************
++
++                ArrayList<Integer> list = new ArrayList();
++                for(Integer num : list){
++                    neeki kod
++                }
++  list.size() puta se izvrsava tijelo petlje, u nasem slucaju izvrsava se neki kod
++
++**********************************************************************************************************
++
++                while(uslov){
++                    tijelo
++                }
++
++ vrti se petlja sve dok je uslov ispunjen i izvrsava se tijelo petlje
++ primjer:
++ while(true){
++    tijelo
++ }
++ Beskonačna petlja jer je true uvijek true
+Index: src/helps/IfElse.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/helps/IfElse.txt	(revision )
++++ src/helps/IfElse.txt	(revision )
+@@ -0,0 +1,9 @@
++if(uslov){
++
++} else {
++
++}
++
++ako uslov iz if-a nije ispunjen program ide u else blok i njega izvrsava
++uslov uvijek mora biti true ili false, bilo kakva poređenja ili blo kakve radnje ciji je rezultat
++                            true ili false
+Index: src/helps/Operatori.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/helps/Operatori.txt	(revision )
++++ src/helps/Operatori.txt	(revision )
+@@ -0,0 +1,22 @@
++Operatori ciji je rezultat true ili false ako se radi o primitivnim tipovima(int, float, double, long)
++!   razlicito
++==  jednako
++!=  nje jedanko
++
++Operatori na Klasi String
++
++string.equals(string1) rezultat ove operacije je true ili false ***poredi stringove po vrijednosti******
++== rezultat ove operacije na stringu je true ili false  ***** poredi lokacije u memoriji-reference******
++
++
++Operatori:
++
++i++     povećava i za jedan isto kao da smo napisali i = i+1
++i++     umanjuje i za jedan usto kao da smo napisali i = i-1
++i+=1    uvećava i za jedan
++i-=1    umanjuje i za jedan
++
++Operatori:
++
++|| operator ili koristi se sa if(uslov || uslov1) ako je ispunje jedan od uslova izvrsava se tijelo if-a
++&& operator i koristi se sa if(uslov && uslov1) ako su oba uslova ispunjena izvrsava se tijeo if-a
+\ No newline at end of file
+Index: src/helps/ArrayList.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/helps/ArrayList.txt	(revision )
++++ src/helps/ArrayList.txt	(revision )
+@@ -0,0 +1,34 @@
++ArrayList<Object> arrayList = new ArrayList<>();
++
++Svaka klasa u javi je tipa Object. Object je svaki java validan tip osim
++primitivnih tipova(int, float, boolean, etc.)
++
++arrayList.add(object); dodaje objekat na kraj liste, i povećava joj velicinu
++
++arrayList.add(index, object); dodaje objekat na (index) mjesto u nizu, sve elemente liste pomijera za jedno
++                              mjesto u desno
++primjer:
++    lista [5, 6, 7, 0, 4]
++    index  0  1  2  3  4
++
++    arrayList.add(2, 9);   dodaj 9 na drugi index u nizu broj koji je bio na indexu 2 se pomijera za jedno
++                           mjesto u desno, a na njegovo mjesto dolazi broj 9
++
++    lista [5, 6, 9, 7, 0, 4]
++    index  0  1  2  3  4  5
++
++arrayList.remove(index); uklanja broj sa index pozicije
++
++primjer:
++    lista [5, 6, 7, 0, 4]
++    index  0  1  2  3  4
++
++    arrayList.remove(3);
++    lista [5, 6, 7, 4]
++    index  0  1  2  3
++
++arrayList.get(index); dohvata obejat sa index polja iz liste
++
++arrayList.size();  vraća velicinu liste
++
++arrayList.clear(); prazni listu
+Index: src/zadatak9/Zadatak9.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package zadatak9;\n\npublic class Zadatak9 {\n\n    public static void main(String[] args) {\n    }\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/zadatak9/Zadatak9.java	(date 1495473185000)
++++ src/zadatak9/Zadatak9.java	(revision )
+@@ -1,8 +1,79 @@
+ package zadatak9;
+ 
++import utils.Constants;
++import java.util.ArrayList;
++
+ public class Zadatak9 {
+ 
+     public static void main(String[] args) {
+-    }
++        ArrayList<Auto> autos = Constants.getAutoList();
++        ArrayList<Auto> sortAutos = new ArrayList<>();
++
++        //////////////////// a ////////////////////////////////////////////////////
++        for (int i = 1; i < autos.size(); i++) {
++            int tempSize = sortAutos.size();
++            for (int j = 0; j < sortAutos.size(); j++) {
++                if (autos.get(i).getYear() > sortAutos.get(j).getYear()) {
++                    sortAutos.add(j, autos.get(i));
++                    break;
++                }
++            }
++            if (sortAutos.size() == tempSize) {
++                sortAutos.add(autos.get(i));
++            }
++        }
++        System.out.println("Sortirana auta po godini: ");
++        for (Auto auto : sortAutos) {
++            System.out.println(auto.getYear() + "  " + auto.getName());
++        }
+ 
++        ////////////////////////////////  b  ///////////////////////////////////////
++        ArrayList<Auto> redAutos = new ArrayList<>();
++        for (Auto auto : autos) {
++            if (auto.getColor().equals("red")) {
++                redAutos.add(auto);
++            }
++        }
++        System.out.println();
++        System.out.println("Crvena auta: ");
++        for (Auto auto : redAutos) {
++            System.out.println(auto.getColor() + "  " + auto.getName());
++        }
++        /////////////////////////////////////  c  ////////////////////////////////////////
++        ArrayList<Auto> manualAutos = new ArrayList<>();
++        for (Auto auto : autos) {
++            if (auto.getTransmission_type().equals("manual")) {
++                manualAutos.add(auto);
++            }
++        }
++        System.out.println();
++        System.out.println("Manualna auta: ");
++        for (Auto auto : manualAutos) {
++            System.out.println(auto.getTransmission_type() + "  " + auto.getName());
++        }
++        /////////////////////////////////////  d  ////////////////////////////////////////
++        ArrayList<Auto> stepsMoreThanForAutos = new ArrayList<>();
++        for (Auto auto : autos) {
++            if (auto.getTransmission_steps() > 4) {
++                stepsMoreThanForAutos.add(auto);
++            }
++        }
++        System.out.println();
++        System.out.println("Auta sa brojem brzina preko 4: ");
++        for (Auto auto : stepsMoreThanForAutos) {
++            System.out.println(auto.getTransmission_steps() + "  " + auto.getName());
++        }
++        /////////////////////////////////////  e  ////////////////////////////////////////
++        ArrayList<Auto> autoWithoutItaly = new ArrayList<>();
++        for (Auto auto : sortAutos) {
++            if (!auto.getCountry().equals("Italy")) {
++                autoWithoutItaly.add(auto);
++            }
++        }
++        System.out.println();
++        System.out.println("auta koja nisu prizvedena u italij i sortirana po godinama: ");
++        for (Auto auto : autoWithoutItaly) {
++            System.out.println(auto.getYear() + "   " + auto.getCountry() + "  " + auto.getName());
++        }
++    }
+ }
+\ No newline at end of file
+Index: src/tests/Test3.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>1. Napraviti klasu Auto koja ima sljedeca polja:\n      year(int)\n      color(String)(red, blue, green)\n      name(String)\n      country(String)\n      transmission_type(String)(manual or automatic)\n      transmission_steps(int)(1, 2 , 3, 4, 5)\n\n   U main-u ispisati sljedeće:\n        a) auta sortirana po godini proizvodnje\n        b) auta koja imaju boju auta crvenu\n        c) auta koja imaju mjenjač brzina manualni i broj brzina 4\n        d) auta koja imaju vise od 4 brzine\n        e) auta koja nisu proizvedena u Italiji(auta treba da budu sortirana po godini prozvodnje)\n\n   Listu auta mozete pronaci u paketu utils u klasi\n   Constants postoji metod getAutoList();\n\n   Results:\n\n   a)\n    Auto by Year:\n    2017  Jaguar\n    2016  Mercedes\n    2014  Mazda\n    2010  Lexus\n    2009  Golf\n    2006  Toyota\n    2002  Lancia\n    2000  Alfa\n    1990  Yugo\n\n    b)\n    Auto by color RED:\n    red  Mazda\n    red  Lancia\n    red  Lexus\n\n    c)\n    Auto by transmission manual and transmission step 4:\n    manual  4  Alfa\n    manual  4  Yugo\n\n    d)\n    Auto by transmission steps over 4:\n    5  Mazda\n    5  Golf\n    6  Mercedes\n    5  Toyota\n    8  Jaguar\n\n    e)\n    2017  Great Brittany  Jaguar\n    2016  Germany  Mercedes\n    2014  Japan  Mazda\n    2010  China  Lexus\n    2009  Germany  Golf\n    2006  Japan  Toyota\n    1990  Serbia  Yugo\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/tests/Test3.txt	(date 1495473185000)
++++ src/tests/Test3.txt	(revision )
+@@ -9,7 +9,7 @@
+    U main-u ispisati sljedeće:
+         a) auta sortirana po godini proizvodnje
+         b) auta koja imaju boju auta crvenu
+-        c) auta koja imaju mjenjač brzina manualni i broj brzina 4
++        c) auta koja imaju mjenjač brzina manualni
+         d) auta koja imaju vise od 4 brzine
+         e) auta koja nisu proizvedena u Italiji(auta treba da budu sortirana po godini prozvodnje)
+ 
+Index: src/zadatak8/Zadatak8
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>1. Napraviti program koji prima sa ulaza 5 brojeva i ispisuje ih redoslijedom, od većeg ka manjem.\n\n   Primjer:\n\n   Unesite 5 brojeva:\n   1\n   5\n   3\n   2\n   6\n\n   Unešeni brojevi sortirani silazno su:\n   6 5 3 2 1\n\n   Za sortiranje nije dozvoljeno koristiti Collections, sortirati for petljm i if-else\n   Dozvoljeno koristenje ArrayList-a\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/zadatak8/Zadatak8	(date 1495473185000)
++++ src/zadatak8/Zadatak8	(revision )
+@@ -8,6 +8,11 @@
+    3
+    2
+    6
++   sortList (1)
++
++   5 > 1
++   sortlist.add(0, 5); 6, 5, 3, 2, 1
++
+ 
+    Unešeni brojevi sortirani silazno su:
+    6 5 3 2 1
+Index: .gitignore
+===================================================================
+--- .gitignore	(date 1495473185000)
++++ .gitignore	(date 1495473185000)
+@@ -1,182 +0,0 @@
+-
+-# Created by https://www.gitignore.io/api/java,android,intellij,intellij+iml
+-
+-### Android ###
+-# Built application files
+-*.apk
+-*.ap_
+-
+-# Files for the ART/Dalvik VM
+-*.dex
+-
+-# Java class files
+-*.class
+-
+-# Generated files
+-bin/
+-gen/
+-out/
+-
+-# Gradle files
+-.gradle/
+-build/
+-
+-# Local configuration file (sdk path, etc)
+-local.properties
+-
+-# Proguard folder generated by Eclipse
+-proguard/
+-
+-# Log Files
+-*.log
+-
+-# Android Studio Navigation editor temp files
+-.navigation/
+-
+-# Android Studio captures folder
+-captures/
+-
+-# Intellij
+-*.iml
+-.idea/workspace.xml
+-.idea/tasks.xml
+-.idea/gradle.xml
+-.idea/dictionaries
+-.idea/libraries
+-
+-# Keystore files
+-*.jks
+-
+-# External native build folder generated in Android Studio 2.2 and later
+-.externalNativeBuild
+-
+-# Google Services (e.g. APIs or Firebase)
+-google-services.json
+-
+-# Freeline
+-freeline.py
+-freeline/
+-freeline_project_description.json
+-
+-### Android Patch ###
+-gen-external-apklibs
+-
+-### Intellij ###
+-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+-# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+-
+-# User-specific stuff:
+-.idea/**/workspace.xml
+-.idea/**/tasks.xml
+-
+-# Sensitive or high-churn files:
+-.idea/**/dataSources/
+-.idea/**/dataSources.ids
+-.idea/**/dataSources.xml
+-.idea/**/dataSources.local.xml
+-.idea/**/sqlDataSources.xml
+-.idea/**/dynamic.xml
+-.idea/**/uiDesigner.xml
+-
+-# Gradle:
+-.idea/**/gradle.xml
+-.idea/**/libraries
+-
+-# CMake
+-cmake-build-debug/
+-
+-# Mongo Explorer plugin:
+-.idea/**/mongoSettings.xml
+-
+-## File-based project format:
+-*.iws
+-
+-## Plugin-specific files:
+-
+-# IntelliJ
+-/out/
+-
+-# mpeltonen/sbt-idea plugin
+-.idea_modules/
+-
+-# JIRA plugin
+-atlassian-ide-plugin.xml
+-
+-# Cursive Clojure plugin
+-.idea/replstate.xml
+-
+-# Crashlytics plugin (for Android Studio and IntelliJ)
+-com_crashlytics_export_strings.xml
+-crashlytics.properties
+-crashlytics-build.properties
+-fabric.properties
+-
+-### Intellij Patch ###
+-# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+-
+-# *.iml
+-# modules.xml
+-# .idea/misc.xml
+-# *.ipr
+-
+-# Sonarlint plugin
+-.idea/sonarlint
+-
+-### Intellij+iml ###
+-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+-# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+-
+-# User-specific stuff:
+-
+-# Sensitive or high-churn files:
+-
+-# Gradle:
+-
+-# CMake
+-
+-# Mongo Explorer plugin:
+-
+-## File-based project format:
+-
+-## Plugin-specific files:
+-
+-# IntelliJ
+-
+-# mpeltonen/sbt-idea plugin
+-
+-# JIRA plugin
+-
+-# Cursive Clojure plugin
+-
+-# Crashlytics plugin (for Android Studio and IntelliJ)
+-
+-### Intellij+iml Patch ###
+-# Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
+-
+-modules.xml
+-.idea/misc.xml
+-*.ipr
+-
+-### Java ###
+-# Compiled class file
+-
+-# Log file
+-
+-# BlueJ files
+-*.ctxt
+-
+-# Mobile Tools for Java (J2ME)
+-.mtj.tmp/
+-
+-# Package Files #
+-*.jar
+-*.war
+-*.ear
+-*.zip
+-*.tar.gz
+-*.rar
+-
+-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+-hs_err_pid*
+-
+-# End of https://www.gitignore.io/api/java,android,intellij,intellij+iml
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision )
++++ .idea/workspace.xml	(revision )
+@@ -0,0 +1,716 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ChangeListManager">
++    <list default="true" id="cd2c8caf-fb28-44a9-a094-158cfa9b95cb" name="Default" comment="">
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/utils/Constants.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak1/Zadatak1.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak2/Radnik.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak2/Zadatak2.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak3/Zadatak3.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak4/Zadatak4.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak5/Zadatak5.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak6/Pravougaonik.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak6/Zadatak6.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak7/Zadatak7.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak8/Zadatak8.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak9/Auto.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak9/Zadatak9.class" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaPrograming.iml" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/tests/Test.txt" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/tests/Test3.txt" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak5/Zadatak5.txt" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak6/Zadatak6.txt" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak7/Zadatak7" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/zadatak8/Zadatak8" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/helps/ArrayList.txt" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/helps/Class.txt" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/helps/GitCommands.txt" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/helps/IfElse.txt" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/helps/Ispis.txt" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/helps/Operatori.txt" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/helps/Petlje.txt" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/zadatak10/Zadatak10" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/zadatak10/Zadatak10.java" />
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/zadatak9/Auto.java" />
++      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
++      <change type="MOVED" beforePath="$PROJECT_DIR$/src/utils/GitCommands.txt" afterPath="$PROJECT_DIR$/out/production/JavaPrograming/utils/GitCommands.txt" />
++      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
++      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/Test3.txt" afterPath="$PROJECT_DIR$/src/tests/Test3.txt" />
++      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/zadatak8/Zadatak8" afterPath="$PROJECT_DIR$/src/zadatak8/Zadatak8" />
++      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/zadatak8/Zadatak8.java" afterPath="$PROJECT_DIR$/src/zadatak8/Zadatak8.java" />
++      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/zadatak9/Zadatak9.java" afterPath="$PROJECT_DIR$/src/zadatak9/Zadatak9.java" />
++    </list>
++    <ignored path="$PROJECT_DIR$/out/" />
++    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
++    <option name="TRACKING_ENABLED" value="true" />
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
++  <component name="FileEditorManager">
++    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GradleLocalSettings">
++    <option name="externalProjectsViewState">
++      <projects_view />
++    </option>
++  </component>
++  <component name="IdeDocumentHistory">
++    <option name="CHANGED_PATHS">
++      <list>
++        <option value="$PROJECT_DIR$/src/zadatak9/Auto.java" />
++        <option value="$PROJECT_DIR$/src/zadatak8/Zadatak8" />
++        <option value="$PROJECT_DIR$/src/zadatak8/Zadatak8.java" />
++        <option value="$PROJECT_DIR$/src/zadatak3/Zadatak3.java" />
++        <option value="$PROJECT_DIR$/src/tests/Test3.txt" />
++        <option value="/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/ArrayList.class" />
++        <option value="$PROJECT_DIR$/src/helps/ArrayList.txt" />
++        <option value="$PROJECT_DIR$/src/helps/Class.txt" />
++        <option value="$PROJECT_DIR$/src/helps/Petlje.txt" />
++        <option value="$PROJECT_DIR$/src/helps/IfElse.txt" />
++        <option value="$PROJECT_DIR$/src/helps/Operatori.txt" />
++        <option value="$PROJECT_DIR$/src/zadatak9/Zadatak9.java" />
++        <option value="$PROJECT_DIR$/src/helps/Ispis.txt" />
++        <option value="$PROJECT_DIR$/src/zadatak10/Zadatak8" />
++        <option value="$PROJECT_DIR$/src/zadatak10/Zadatak8.java" />
++        <option value="$PROJECT_DIR$/src/zadatak10/Zadatak10.java" />
++        <option value="$PROJECT_DIR$/src/zadatak10/Zadatak10" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectFrameBounds">
++    <option name="x" value="-1" />
++    <option name="y" value="-11" />
++    <option name="width" value="1368" />
++    <option name="height" value="780" />
++  </component>
++  <component name="ProjectLevelVcsManager">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
++  <component name="ProjectView">
++    <navigator currentView="ProjectPane" proportions="" version="1">
++      <flattenPackages />
++      <showMembers />
++      <showModules />
++      <showLibraryContents />
++      <hideEmptyPackages />
++      <abbreviatePackageNames />
++      <autoscrollToSource />
++      <autoscrollFromSource />
++      <sortByType />
++      <manualOrder />
++      <foldersAlwaysOnTop value="true" />
++    </navigator>
++    <panes>
++      <pane id="Scratches" />
++      <pane id="ProjectPane">
++        <subPane>
++          <PATH>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="JavaPrograming" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="JavaPrograming" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++          </PATH>
++          <PATH>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="JavaPrograming" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="JavaPrograming" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="src" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++          </PATH>
++        </subPane>
++      </pane>
++      <pane id="PackagesPane" />
++      <pane id="Scope" />
++    </panes>
++  </component>
++  <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/src/zadatak10" />
++    </key>
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/src/helps" />
++    </key>
++  </component>
++  <component name="RunDashboard">
++    <option name="ruleStates">
++      <list>
++        <RuleState>
++          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
++        </RuleState>
++        <RuleState>
++          <option name="name" value="StatusDashboardGroupingRule" />
++        </RuleState>
++      </list>
++    </option>
++  </component>
++  <component name="RunManager" selected="Application.Zadatak9">
++    <configuration default="false" name="Zadatak9" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
++        <pattern>
++          <option name="PATTERN" value="zadatak9.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="MAIN_CLASS_NAME" value="zadatak9.Zadatak9" />
++      <option name="VM_PARAMETERS" />
++      <option name="PROGRAM_PARAMETERS" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
++      <option name="ALTERNATIVE_JRE_PATH" />
++      <option name="ENABLE_SWING_INSPECTOR" value="false" />
++      <option name="ENV_VARIABLES" />
++      <option name="PASS_PARENT_ENVS" value="true" />
++      <module name="JavaPrograming" />
++      <envs />
++      <method />
++    </configuration>
++    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
++      <module name="" />
++      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
++      <option name="PROGRAM_PARAMETERS" />
++      <predefined_log_file id="idea.log" enabled="true" />
++      <method />
++    </configuration>
++    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
++      <module name="" />
++      <option name="DEPLOY" value="true" />
++      <option name="ARTIFACT_NAME" value="" />
++      <option name="PM_INSTALL_OPTIONS" value="" />
++      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
++      <option name="MODE" value="default_activity" />
++      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
++      <option name="PREFERRED_AVD" value="" />
++      <option name="CLEAR_LOGCAT" value="false" />
++      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
++      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
++      <option name="FORCE_STOP_RUNNING_APP" value="true" />
++      <option name="DEBUGGER_TYPE" value="Java" />
++      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
++      <option name="PREFERRED_AVD" value="" />
++      <Java />
++      <Profilers>
++        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
++        <option name="GAPID_ENABLED" value="false" />
++        <option name="GAPID_DISABLE_PCS" value="false" />
++        <option name="SUPPORT_LIB_ENABLED" value="true" />
++        <option name="INSTRUMENTATION_ENABLED" value="true" />
++      </Profilers>
++      <option name="DEEP_LINK" value="" />
++      <option name="ACTIVITY_CLASS" value="" />
++      <method />
++    </configuration>
++    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
++      <module name="" />
++      <option name="TESTING_TYPE" value="0" />
++      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
++      <option name="METHOD_NAME" value="" />
++      <option name="CLASS_NAME" value="" />
++      <option name="PACKAGE_NAME" value="" />
++      <option name="EXTRA_OPTIONS" value="" />
++      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
++      <option name="PREFERRED_AVD" value="" />
++      <option name="CLEAR_LOGCAT" value="false" />
++      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
++      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
++      <option name="FORCE_STOP_RUNNING_APP" value="true" />
++      <option name="DEBUGGER_TYPE" value="Java" />
++      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
++      <option name="PREFERRED_AVD" value="" />
++      <Java />
++      <Profilers>
++        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
++        <option name="GAPID_ENABLED" value="false" />
++        <option name="GAPID_DISABLE_PCS" value="false" />
++        <option name="SUPPORT_LIB_ENABLED" value="true" />
++        <option name="INSTRUMENTATION_ENABLED" value="true" />
++      </Profilers>
++      <method />
++    </configuration>
++    <configuration default="true" type="Applet" factoryName="Applet">
++      <option name="HTML_USED" value="false" />
++      <option name="WIDTH" value="400" />
++      <option name="HEIGHT" value="300" />
++      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
++      <module />
++      <method />
++    </configuration>
++    <configuration default="true" type="Application" factoryName="Application">
++      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
++      <option name="MAIN_CLASS_NAME" />
++      <option name="VM_PARAMETERS" />
++      <option name="PROGRAM_PARAMETERS" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
++      <option name="ALTERNATIVE_JRE_PATH" />
++      <option name="ENABLE_SWING_INSPECTOR" value="false" />
++      <option name="ENV_VARIABLES" />
++      <option name="PASS_PARENT_ENVS" value="true" />
++      <module name="" />
++      <envs />
++      <method />
++    </configuration>
++    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
++      <ExternalSystemSettings>
++        <option name="executionName" />
++        <option name="externalProjectPath" />
++        <option name="externalSystemIdString" value="GRADLE" />
++        <option name="scriptParameters" />
++        <option name="taskDescriptions">
++          <list />
++        </option>
++        <option name="taskNames">
++          <list />
++        </option>
++        <option name="vmOptions" />
++      </ExternalSystemSettings>
++      <method />
++    </configuration>
++    <configuration default="true" type="JUnit" factoryName="JUnit">
++      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
++      <module name="" />
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
++      <option name="ALTERNATIVE_JRE_PATH" />
++      <option name="PACKAGE_NAME" />
++      <option name="MAIN_CLASS_NAME" />
++      <option name="METHOD_NAME" />
++      <option name="TEST_OBJECT" value="class" />
++      <option name="VM_PARAMETERS" value="-ea" />
++      <option name="PARAMETERS" />
++      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
++      <option name="ENV_VARIABLES" />
++      <option name="PASS_PARENT_ENVS" value="true" />
++      <option name="TEST_SEARCH_SCOPE">
++        <value defaultName="singleModule" />
++      </option>
++      <envs />
++      <patterns />
++      <method />
++    </configuration>
++    <configuration default="true" type="JarApplication" factoryName="JAR Application">
++      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
++      <envs />
++      <method />
++    </configuration>
++    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
++      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
++      <option name="SCRATCH_FILE_ID" value="0" />
++      <option name="MAIN_CLASS_NAME" />
++      <option name="VM_PARAMETERS" />
++      <option name="PROGRAM_PARAMETERS" />
++      <option name="WORKING_DIRECTORY" />
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
++      <option name="ALTERNATIVE_JRE_PATH" />
++      <option name="ENABLE_SWING_INSPECTOR" value="false" />
++      <option name="ENV_VARIABLES" />
++      <option name="PASS_PARENT_ENVS" value="true" />
++      <module name="" />
++      <envs />
++      <method />
++    </configuration>
++    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
++      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
++      <option name="MAIN_CLASS_NAME" />
++      <option name="VM_PARAMETERS" />
++      <option name="PROGRAM_PARAMETERS" />
++      <option name="WORKING_DIRECTORY" />
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
++      <option name="ALTERNATIVE_JRE_PATH" />
++      <option name="PASS_PARENT_ENVS" value="true" />
++      <module name="JavaPrograming" />
++      <envs />
++      <method />
++    </configuration>
++    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
++      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
++      <option name="filePath" />
++      <option name="vmParameters" />
++      <option name="alternativeJrePath" />
++      <option name="programParameters" />
++      <option name="passParentEnvs" value="true" />
++      <option name="workingDirectory" />
++      <option name="isAlternativeJrePathEnabled" value="false" />
++      <envs />
++      <method />
++    </configuration>
++    <configuration default="true" type="Remote" factoryName="Remote">
++      <option name="USE_SOCKET_TRANSPORT" value="true" />
++      <option name="SERVER_MODE" value="false" />
++      <option name="SHMEM_ADDRESS" value="javadebug" />
++      <option name="HOST" value="localhost" />
++      <option name="PORT" value="5005" />
++      <method />
++    </configuration>
++    <configuration default="true" type="TestNG" factoryName="TestNG">
++      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
++      <module name="" />
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
++      <option name="ALTERNATIVE_JRE_PATH" />
++      <option name="SUITE_NAME" />
++      <option name="PACKAGE_NAME" />
++      <option name="MAIN_CLASS_NAME" />
++      <option name="METHOD_NAME" />
++      <option name="GROUP_NAME" />
++      <option name="TEST_OBJECT" value="CLASS" />
++      <option name="VM_PARAMETERS" value="-ea" />
++      <option name="PARAMETERS" />
++      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
++      <option name="OUTPUT_DIRECTORY" />
++      <option name="ANNOTATION_TYPE" />
++      <option name="ENV_VARIABLES" />
++      <option name="PASS_PARENT_ENVS" value="true" />
++      <option name="TEST_SEARCH_SCOPE">
++        <value defaultName="singleModule" />
++      </option>
++      <option name="USE_DEFAULT_REPORTERS" value="false" />
++      <option name="PROPERTIES_FILE" />
++      <envs />
++      <properties />
++      <listeners />
++      <method />
++    </configuration>
++    <list size="1">
++      <item index="0" class="java.lang.String" itemvalue="Application.Zadatak9" />
++    </list>
++    <recent_temporary>
++      <list size="1">
++        <item index="0" class="java.lang.String" itemvalue="Application.Zadatak9" />
++      </list>
++    </recent_temporary>
++  </component>
++  <component name="ShelveChangesManager" show_recycled="false">
++    <option name="remove_strategy" value="false" />
++  </component>
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="cd2c8caf-fb28-44a9-a094-158cfa9b95cb" name="Default" comment="" />
++      <created>1495477067114</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1495477067114</updated>
++    </task>
++    <servers />
++  </component>
++  <component name="ToolWindowManager">
++    <frame x="-1" y="-11" width="1368" height="780" extended-state="6" />
++    <layout>
++      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
++      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
++      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
++      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
++      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
++      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
++      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
++      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
++      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
++      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51941746" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
++      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.90614885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
++      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
++      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.94012946" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
++      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
++      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
++      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2030303" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
++      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
++      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
++      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
++      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
++      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
++      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
++      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
++      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
++      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
++      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
++      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
++      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
++    </layout>
++  </component>
++  <component name="VcsContentAnnotationSettings">
++    <option name="myLimit" value="2678400000" />
++  </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager />
++    <watches-manager />
++  </component>
++  <component name="antWorkspaceConfiguration">
++    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
++    <option name="FILTER_TARGETS" value="false" />
++  </component>
++  <component name="editorHistoryManager">
++    <entry file="file://$PROJECT_DIR$/src/zadatak9/Zadatak9.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="0">
++          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
++          <folding>
++            <element signature="imports" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak2/Zadatak2.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="72">
++          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak3/Zadatak3.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="108">
++          <caret line="6" column="44" lean-forward="false" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak1/Zadatak1.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="72">
++          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak4/Zadatak4.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="738">
++          <caret line="41" column="32" lean-forward="true" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak5/Zadatak5.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="72">
++          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak6/Pravougaonik.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="90">
++          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/tests/Test3.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="198">
++          <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak8/Zadatak8.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="414">
++          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak8/Zadatak8">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="234">
++          <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/helps/GitCommands.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="0">
++          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak6/Pravougaonik.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="57">
++          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak5/Zadatak5.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="18">
++          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak4/Zadatak4.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="277">
++          <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak1/Zadatak1.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="18">
++          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak3/Zadatak3.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="108">
++          <caret line="6" column="44" lean-forward="false" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak2/Zadatak2.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="18">
++          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/utils/Constants.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="360">
++          <caret line="23" column="57" lean-forward="false" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="57" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/tests/Test3.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="198">
++          <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/ArrayList.class">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="-522">
++          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/helps/ArrayList.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="594">
++          <caret line="33" column="31" lean-forward="false" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/helps/Class.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="498">
++          <caret line="111" column="75" lean-forward="false" selection-start-line="111" selection-start-column="75" selection-end-line="111" selection-end-column="75" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/helps/Petlje.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="468">
++          <caret line="26" column="42" lean-forward="false" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/helps/IfElse.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="144">
++          <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/helps/Operatori.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="360">
++          <caret line="20" column="104" lean-forward="false" selection-start-line="20" selection-start-column="104" selection-end-line="20" selection-end-column="104" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak9/Auto.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="306">
++          <caret line="17" column="44" lean-forward="true" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/helps/Ispis.txt">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="234">
++          <caret line="13" column="72" lean-forward="false" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak9/Zadatak9.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="417">
++          <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
++          <folding>
++            <element signature="imports" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak8/Zadatak8.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="394">
++          <caret line="35" column="9" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="35" selection-end-column="9" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak10/Zadatak10.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="36">
++          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/zadatak10/Zadatak10">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="0">
++          <caret line="0" column="28" lean-forward="false" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/helps/GitCommands.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/helps/GitCommands.txt	(revision )
++++ src/helps/GitCommands.txt	(revision )
+@@ -0,0 +1,26 @@
++git status                   vraća status fajlova(fajlove koji su mijenjani)
++
++git add .                    dodaje u git sve fajlove koji su mijenjani
++
++git commit -m "message"      sačuva sve lokalno i pripremi za push
++
++git push --all               salje na git server sve fajlove koji su dodani i komitani
++
++git pull                     povlači sa git servera sve fajlove koji su pushani. Prije nego uradimo git pull
++                             lokalno git mora biti cist
++
++git reset --hard             brise sve lokalne promjene i resetuje na zadnji pull koji je uradjen
++
++git fetch                    povlači sve branch-eve lokalno
++
++git checkout -b ime_branch   kreira novi branch
++
++git checkout ime_branch      učitava kod sa zadatog branch-a
++
++primjer:
++Kada nešto radimo i mijenjamo dodajmo fajlove i hocemo da posaljemo na git server:
++
++git add .
++git commit -m "added new file, and some work"
++git push --all ili git push origin master ili git push ime_branch
++
+Index: src/zadatak10/Zadatak10.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/zadatak10/Zadatak10.java	(revision )
++++ src/zadatak10/Zadatak10.java	(revision )
+@@ -0,0 +1,8 @@
++package zadatak10;
++
++public class Zadatak10 {
++
++    public static void main(String[] args) {
++    }
++
++}
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision )
++++ .idea/misc.xml	(revision )
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: JavaPrograming.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- JavaPrograming.iml	(revision )
++++ JavaPrograming.iml	(revision )
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: out/production/JavaPrograming/zadatak5/Zadatak5.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- out/production/JavaPrograming/zadatak5/Zadatak5.txt	(revision )
++++ out/production/JavaPrograming/zadatak5/Zadatak5.txt	(revision )
+@@ -0,0 +1,12 @@
++1. Napisati program koji u listi brojeva pronalazi:
++        a) sve parne i neparne brojeve
++        b) sve pozitivne i negativne brojeve
++        c) sve proste brojeve
++
++   Primjer ispisa:
++
++   Parni brojevi: 2 4 8 12
++   Neparni brojevi: 1 3 5 7 9
++   Pozitivni: 1 2 3 4 5 6
++   Negativni: -1 -2
++   Prosti brojevi: 2 3 5 7 11 13 17 19
+\ No newline at end of file
+Index: out/production/JavaPrograming/zadatak8/Zadatak8
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- out/production/JavaPrograming/zadatak8/Zadatak8	(revision )
++++ out/production/JavaPrograming/zadatak8/Zadatak8	(revision )
+@@ -0,0 +1,23 @@
++1. Napraviti program koji prima sa ulaza 5 brojeva i ispisuje ih redoslijedom, od većeg ka manjem.
++
++   Primjer:
++
++   Unesite 5 brojeva:
++   1
++   5
++   3
++   2
++   6
++   sortList (1)
++
++   5 > 1
++   sortlist.add(0, 5); 6, 5, 3, 2, 1
++
++
++   Unešeni brojevi sortirani silazno su:
++   6 5 3 2 1
++
++   Za sortiranje nije dozvoljeno koristiti Collections, sortirati for petljm i if-else
++   Dozvoljeno koristenje ArrayList-a
++
++
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"VcsDirectoryMappings\">\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1495473185000)
++++ .idea/vcs.xml	(revision )
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: out/production/JavaPrograming/tests/Test.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- out/production/JavaPrograming/tests/Test.txt	(revision )
++++ out/production/JavaPrograming/tests/Test.txt	(revision )
+@@ -0,0 +1,22 @@
++Test1: https://goo.gl/forms/XXEGpwPAqLtOLVSi1
++Test2: https://goo.gl/forms/7Id2iVMLjCAxw1ZD3
++
++   Ime            T1            T2          T3          T4
++
++1. Amir          16/23        10/10
++
++2. Armin         15/23         8/10
++
++3. Emin          10/23         7/10
++
++4. Ervin         17/23         6/10
++
++5. Jasmin        09/23         8/10
++
++6. Mahir         14/23         6/10
++
++7. Omar          12/23         7/10
++
++8. Sabit          0/23         7/10
++
++
+Index: src/zadatak8/Zadatak8.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package zadatak8;\n\n\nimport java.util.ArrayList;\nimport java.util.Scanner;\n\npublic class Zadatak8 {\n\n    public static void main(String[] args) {\n        ArrayList<Integer> numList = new ArrayList<>();\n        Scanner s = new Scanner(System.in);\n        while (s.hasNext()){\n            numList.add(s.nextInt());\n            if (numList.size() == 5){ // kad je unešeno 5 brojeva scanner se zatvara\n                break;\n            }\n        }\n\n\n        ArrayList<Integer> tempList = new ArrayList<>(); //pravimo novu sortiranu listu\n        tempList.add(numList.get(0)); //dodajemo prvi broj u sortiranu listu\n        for (int i = 1; i <numList.size(); i++){\n            int tempSize = tempList.size(); // pamtimo belicinu sortirane liste\n           for (int j = 0; j< tempList.size();j++){\n               if (numList.get(i) > tempList.get(j)){ //ako je novi broj veci od brojeva\n                   // u sortiranoj listi dodajmo ga ispred tog broja u sortiranoj listi\n                   tempList.add(j, numList.get(i)); //dodaje ispred trenutnog broja u sortiranoj listi\n                                                    //ako je veci od tog broja\n                   break; //prekida petlju jer dodao broj da ne bi dodavao duplikate\n               }\n           }\n           if (tempList.size() == tempSize){ //ako se nista nije desilo u drugoj for petlji\n                                             //dodajmo na kraj sortirane liste jer je trenutni broj najmanji\n               tempList.add(numList.get(i));\n           }\n        }\n        System.out.println(tempList.toString()); //ispis liste koristi se metod na listi toString();\n    }\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/zadatak8/Zadatak8.java	(date 1495473185000)
++++ src/zadatak8/Zadatak8.java	(revision )
+@@ -17,24 +17,24 @@
+         }
+ 
+ 
+-        ArrayList<Integer> tempList = new ArrayList<>(); //pravimo novu sortiranu listu
+-        tempList.add(numList.get(0)); //dodajemo prvi broj u sortiranu listu
++        ArrayList<Integer> sortedList = new ArrayList<>(); //pravimo novu sortiranu listu
++        sortedList.add(numList.get(0)); //dodajemo prvi broj u sortiranu listu
+         for (int i = 1; i <numList.size(); i++){
+-            int tempSize = tempList.size(); // pamtimo belicinu sortirane liste
+-           for (int j = 0; j< tempList.size();j++){
+-               if (numList.get(i) > tempList.get(j)){ //ako je novi broj veci od brojeva
++            int tempSize = sortedList.size(); // pamtimo belicinu sortirane liste
++           for (int j = 0; j< sortedList.size();j++){
++               if (numList.get(i) > sortedList.get(j)){ //ako je novi broj veci od brojeva
+                    // u sortiranoj listi dodajmo ga ispred tog broja u sortiranoj listi
+-                   tempList.add(j, numList.get(i)); //dodaje ispred trenutnog broja u sortiranoj listi
++                   sortedList.add(j, numList.get(i)); //dodaje ispred trenutnog broja u sortiranoj listi
+                                                     //ako je veci od tog broja
+                    break; //prekida petlju jer dodao broj da ne bi dodavao duplikate
+                }
+            }
+-           if (tempList.size() == tempSize){ //ako se nista nije desilo u drugoj for petlji
++           if (sortedList.size() == tempSize){ //ako se nista nije desilo u drugoj for petlji
+                                              //dodajmo na kraj sortirane liste jer je trenutni broj najmanji
+-               tempList.add(numList.get(i));
++               sortedList.add(numList.get(i));
+            }
+         }
+-        System.out.println(tempList.toString()); //ispis liste koristi se metod na listi toString();
++        System.out.println(sortedList.toString()); //ispis liste koristi se metod na listi toString();
+     }
+ 
+ }
+\ No newline at end of file
+Index: out/production/JavaPrograming/zadatak7/Zadatak7
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- out/production/JavaPrograming/zadatak7/Zadatak7	(revision )
++++ out/production/JavaPrograming/zadatak7/Zadatak7	(revision )
+@@ -0,0 +1,8 @@
++******
++*****
++****
++***
++**
++*
++
++

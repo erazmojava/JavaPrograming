@@ -1,0 +1,9 @@
+if(uslov){
+
+} else {
+
+}
+
+ako uslov iz if-a nije ispunjen program ide u else blok i njega izvrsava
+uslov uvijek mora biti true ili false, bilo kakva poređenja ili blo kakve radnje ciji je rezultat
+                            true ili false

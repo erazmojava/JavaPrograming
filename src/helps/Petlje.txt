@@ -1,0 +1,27 @@
+
+                for(int i = 0; i < 10; i++){
+                    neki kod
+                }
+  10 puta se izvrsava kod iz tijela for petlje u nasem slucaju izvrsava se 10 puta "neki kod":
+
+
+**********************************************************************************************************
+
+                ArrayList<Integer> list = new ArrayList();
+                for(Integer num : list){
+                    neeki kod
+                }
+  list.size() puta se izvrsava tijelo petlje, u nasem slucaju izvrsava se neki kod
+
+**********************************************************************************************************
+
+                while(uslov){
+                    tijelo
+                }
+
+ vrti se petlja sve dok je uslov ispunjen i izvrsava se tijelo petlje
+ primjer:
+ while(true){
+    tijelo
+ }
+ Beskonačna petlja jer je true uvijek true

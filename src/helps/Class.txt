@@ -1,0 +1,115 @@
+Kako se pravi klasa?
+
+modifikator kljucna riječ class ime_klase otvorena velika zagrada
+
+modifikatori:
+    public - java klasa i u jednom fajlu moze biti samo jedna javna klasa.
+    private - privatna klasa koja se nalazi unutar neke public klase
+
+Ime klase počinje velikim slovom, ako je ime klase sastavljeno od vise riječi, primjenjuje se
+CamelCase.
+CamelCase - svaka riječ počinje sa velikim slovom
+primjer:
+    MojaPrvaKlasa - ime klase je sastavljeno od tri riječi gdje svaka počinje velikim slovom
+
+Ime public klase mora da bude identično kao i ime fajla.
+**************************************************************
+*                                                            *
+*             Ime klase počinje velikim slovom               *
+*                                                            *
+**************************************************************
+
+
+
+*******************   Polja klase ***************************************
+
+modifikator tip ime_polja;
+polja u klasi počinju malim slovom. Ako polje klase ima ime od vise riječi, onda se primjenjuje camelCase.
+
+primjer:
+    private int mojPrviClan - prva rijec počinje malim slovom sve ostale počinju velikim slovom
+
+********************* Konstruktor ***************************
+
+modifikator ImeKonstruktora(polja koja prima kostrutor){
+tijelo konstrutora
+}
+Svaka klasa mora da ima default konstruktor
+Svaka klasa moze da ima vise knstruktora
+modifikatori:
+    public  - javan konstruktor i mozemo mu pristupiti iz bilo koje druge klase
+    private - privatan konstrutor i mozemo mu pristupiti samo unutar te klase u kojoj se nalazi
+    protected - zaštićeni konstruktor kojem mozemo pritupiti u bilo kojoj klasi koja naljedjuje klasu koja
+                ima protected konstruktor
+WARNING:
+            Ime konstruktora mora da bude isto kao ime klase
+
+********************************** metodi *********************************
+
+modifikator povratni_tip ime_metoda (Parametri koje prima){
+tijelo
+}
+modifikatori:
+    public -    javan metod mozemo mu pristupiti u bilo kojoj klasi u kojoj imamo instancu klase u kojoj se
+                nalazi metod
+    private-    privatan metod i mozemo mu pristuputi samo unutar date klase u kojoj je konstruisan
+    protected-  zaštićen metod i mozemo mu pristupiti iz bilo koje klase koja nasljedjuje klasu koja ima
+                protected metod.
+Dodatni modifikator
+    static - statičan metod na nivou memorije, postoji samo jedna kopija metoda, moze biti pozvan u bilo kojoj
+             klasi, nije potrebna instanca. Unutar statičnog metoda mozemo korzsiti polja klase samo koja su
+             staticna.
+Povratni tip:
+    Povratni tip moze biti bilo koji validan java tip(int, String, void, boolean, etc.)
+Ime metoda - treba da bude intuitivno da bez gledanja sadrzaja metoda znao sta je zadatak metoda
+Parametri koje prima metod - moze biti neograničen broj parametara i mogu biti bilo kojeg java validnog tipa
+
+*************************** Primjer klase sa poljima, konstrutorom, metodaima ***********************
+
+public class MojaPrvaKlasa {
+    polja:
+    private int polje1;
+    private double polje2;
+
+    konstruktor:
+
+    public MojaPrvaKlasa(){} default konstruktor
+
+    public MojaPrvaKlasa(int polje1, double polje2){
+        this.polje1 = polje1;
+        this.polje2 = polje2;
+     }
+
+     metodi:
+     public void setPolje2(int polje1){ // ako metoda ima povratni tip void ne treba return
+        this.polje1 = polje1;
+     }
+     public int getPolje1(){ // ako metod ima povratni tip koji nije void onda treba return i tip_povratnog_tipa
+        return this.polje1;
+     }
+
+     public static int getZbirPolja(){
+        return this.polje1 + this.polje2;
+     }
+
+}
+
+************************* poziv ne statičnog metoda *************************************
+
+    ako metod nije statican potrebna nam je instanca klase.
+    Primjer:
+         MojaPrvaKlasa klasa = new MojaPrvaKlasa();
+         klasa.getPolje1();
+
+******************************* poziv staticnog metoda ************************************
+
+Ako je metod statican ne treba nam instanca klase:
+Primjer:
+        MojaPrvaKlasa.getZbirPolja() ne treba instanca klase, ne treba new, direktno na ime klase
+                                     zovemo metod
+
+***************************************************************************
+*         Nikad ne praviti klasu unutar main funkcije                     *
+*         Uvijek kasu pravimo desni klik na paket i new class             *
+***************************************************************************
+

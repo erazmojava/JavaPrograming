@@ -1,0 +1,26 @@
+git status                   vraća status fajlova(fajlove koji su mijenjani)
+
+git add .                    dodaje u git sve fajlove koji su mijenjani
+
+git commit -m "message"      sačuva sve lokalno i pripremi za push
+
+git push --all               salje na git server sve fajlove koji su dodani i komitani
+
+git pull                     povlači sa git servera sve fajlove koji su pushani. Prije nego uradimo git pull
+                             lokalno git mora biti cist
+
+git reset --hard             brise sve lokalne promjene i resetuje na zadnji pull koji je uradjen
+
+git fetch                    povlači sve branch-eve lokalno
+
+git checkout -b ime_branch   kreira novi branch
+
+git checkout ime_branch      učitava kod sa zadatog branch-a
+
+primjer:
+Kada nešto radimo i mijenjamo dodajmo fajlove i hocemo da posaljemo na git server:
+
+git add .
+git commit -m "added new file, and some work"
+git push --all ili git push origin master ili git push ime_branch
+

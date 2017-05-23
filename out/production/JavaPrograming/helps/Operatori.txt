@@ -1,0 +1,22 @@
+Operatori ciji je rezultat true ili false ako se radi o primitivnim tipovima(int, float, double, long)
+!   razlicito
+==  jednako
+!=  nje jedanko
+
+Operatori na Klasi String
+
+string.equals(string1) rezultat ove operacije je true ili false ***poredi stringove po vrijednosti******
+== rezultat ove operacije na stringu je true ili false  ***** poredi lokacije u memoriji-reference******
+
+
+Operatori:
+
+i++     povećava i za jedan isto kao da smo napisali i = i+1
+i++     umanjuje i za jedan usto kao da smo napisali i = i-1
+i+=1    uvećava i za jedan
+i-=1    umanjuje i za jedan
+
+Operatori:
+
+|| operator ili koristi se sa if(uslov || uslov1) ako je ispunje jedan od uslova izvrsava se tijelo if-a
+&& operator i koristi se sa if(uslov && uslov1) ako su oba uslova ispunjena izvrsava se tijeo if-a

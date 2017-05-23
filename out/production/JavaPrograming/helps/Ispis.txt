@@ -1,0 +1,14 @@
+ System.out.print(objekat);
+                ispisuje objekt bilo kojeg tipa
+
+
+
+System.out.println(objakat);
+                ispisuje objekat bilo kojeg tipa i prebacuje ispis u novi red
+
+System.out.println();
+                prebacuje u novi red
+
+
+System.out.printf("%s", neki tip);
+                    neki tip moze biti String, float.. Ispisuje neki tip

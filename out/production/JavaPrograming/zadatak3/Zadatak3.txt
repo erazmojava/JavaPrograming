@@ -1,0 +1,18 @@
+3. Napisati program koji prima sa ulaza neograničen broj brojeva, kada unesemo broj 0 program se gasi, i ispisuje
+   najmanji pozitivan broj.
+
+   Primjer ispisa:
+   (U slučaju da se unese bar jedan pozitivan broj)
+   Smallest positive number is: 2
+
+   (U slucaju da se ne unese pozitivan broj)
+   All your numbers are negative.
+
+   Pokušati koristiti eng jezik za varijable, također i za poruke.
+
+   Scanner s = new Scanner(System.in); obezbjeđuje da se u konzoli mogu unositi brojevi. Enter zahtjeva novi broj.
+   while(s.hasNext){
+   int num = s.nextInt();
+   if(num == 0) {  u slučaju da je 0 unesena, program se zavrsava.
+        break;
+   }

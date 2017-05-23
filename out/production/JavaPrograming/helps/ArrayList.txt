@@ -1,0 +1,34 @@
+ArrayList<Object> arrayList = new ArrayList<>();
+
+Svaka klasa u javi je tipa Object. Object je svaki java validan tip osim
+primitivnih tipova(int, float, boolean, etc.)
+
+arrayList.add(object); dodaje objekat na kraj liste, i povećava joj velicinu
+
+arrayList.add(index, object); dodaje objekat na (index) mjesto u nizu, sve elemente liste pomijera za jedno
+                              mjesto u desno
+primjer:
+    lista [5, 6, 7, 0, 4]
+    index  0  1  2  3  4
+
+    arrayList.add(2, 9);   dodaj 9 na drugi index u nizu broj koji je bio na indexu 2 se pomijera za jedno
+                           mjesto u desno, a na njegovo mjesto dolazi broj 9
+
+    lista [5, 6, 9, 7, 0, 4]
+    index  0  1  2  3  4  5
+
+arrayList.remove(index); uklanja broj sa index pozicije
+
+primjer:
+    lista [5, 6, 7, 0, 4]
+    index  0  1  2  3  4
+
+    arrayList.remove(3);
+    lista [5, 6, 7, 4]
+    index  0  1  2  3
+
+arrayList.get(index); dohvata obejat sa index polja iz liste
+
+arrayList.size();  vraća velicinu liste
+
+arrayList.clear(); prazni listu

@@ -89,7 +89,20 @@ public class Zadatak9 {
         for (Auto auto : countryAutos) {
             System.out.println(auto.getYear() + "  " + auto.getCountry() + "  " + auto.getName());
         }
+        ArrayList<Auto> transmisionstepAutos = new ArrayList<>();
 
+        for (Auto auto : autos) {
+            if (auto.getTransmission_steps() == 4) {
+                transmisionstepAutos.add(auto);
+            }
+        }
+        System.out.println();
+        System.out.println("Sortirana auta po transmision step: ");
+
+        for (Auto auto : transmisionstepAutos) {
+            System.out.println(auto.getTransmission_steps() + "  " + auto.getName());
+
+        }
 
     }
 }

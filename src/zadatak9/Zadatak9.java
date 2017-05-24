@@ -50,5 +50,75 @@ public class Zadatak9 {
         for (Auto auto : redAutos){
             System.out.println(auto.getColor() +"  "+ auto.getName());
         }
+  ArrayList<Auto> italyAuto = new ArrayList<>();
+        System.out.println();
+        System.out.println("Netalijanska auta; ");
+        for (Auto auto : autos){
+           if (auto.getCountry()!=("Italy")){
+               italyAuto.add(auto);
+           }
+        }
+        for (Auto auto : italyAuto) {
+            System.out.println(auto.getName()+ " "+ auto.getCountry());
+        }
+     ArrayList<Auto> italyAuto = new ArrayList<>();
+        System.out.println();
+        System.out.println("Netalijanska auta; ");
+        for (Auto auto : autos){
+           if (auto.getCountry()!=("Italy")){
+               italyAuto.add(auto);
+           }
+        }
+        for (Auto auto : italyAuto) {
+            System.out.println(auto.getName()+ " "+ auto.getCountry());
+        }
+       ArrayList<Auto> italyAuto = new ArrayList<>();
+        System.out.println();
+        System.out.println("Netalijanska auta; ");
+        for (Auto auto : autos){
+           if (auto.getCountry()!=("Italy")){
+               italyAuto.add(auto);
+           }
+        }
+        for (Auto auto : italyAuto) {
+            System.out.println(auto.getName()+ " "+ auto.getCountry());
+        }
+    
+  ArrayList<Auto> italyAuto = new ArrayList<>();
+        System.out.println();
+        System.out.println("Netalijanska auta; ");
+        for (Auto auto : autos){
+           if (auto.getCountry()!=("Italy")){
+               italyAuto.add(auto);
+           }
+        }
+        for (Auto auto : italyAuto) {
+            System.out.println(auto.getName()+ " "+ auto.getCountry());
+        }
+      ArrayList<Auto> italyAuto = new ArrayList<>();
+        System.out.println();
+        System.out.println("Netalijanska auta; ");
+        for (Auto auto : autos){
+           if (auto.getCountry()!=("Italy")){
+               italyAuto.add(auto);
+           }
+        }
+        for (Auto auto : italyAuto) {
+            System.out.println(auto.getName()+ " "+ auto.getCountry());
+        }
+    
+
+        ArrayList<Auto> italyAuto = new ArrayList<>();
+        System.out.println();
+        System.out.println("Netalijanska auta; ");
+        for (Auto auto : autos){
+           if (auto.getCountry()!=("Italy")){
+               italyAuto.add(auto);
+           }
+        }
+        for (Auto auto : italyAuto) {
+            System.out.println(auto.getName()+ " "+ auto.getCountry());
+        }
     }
+
 }

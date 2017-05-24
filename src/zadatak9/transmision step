@@ -1,0 +1,15 @@
+ ArrayList<Auto> transmisionstepAutos = new ArrayList<>();
+
+        for (Auto auto : autos) {
+            if (auto.getTransmission_steps().equals("4")) {
+                transmisionstepAutos.add(auto);
+
+            }
+        }
+        System.out.println();
+        System.out.println("Sortirana auta po transmision step: ");
+
+        for (Auto auto : transmisionstepAutos) {
+            System.out.println(auto.getTransmission_steps() + "  " + auto.getName());
+
+    }

@@ -1,0 +1,7 @@
+Funkcije se prave isto kao i metodi samo su van klase, i nemaju diretnu vezu sa klasom.
+Funkcije koje su napisane unutar klase se nazivaju metodi date klase.
+Funkcije ne trebaju da imaju modifikator.
+
+povratni_tip ime_funkcije(int tip1, Object tip2 ........){
+    tijelo
+}

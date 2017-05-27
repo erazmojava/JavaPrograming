@@ -19,6 +19,7 @@ public class Zadatak9 {
         ArrayList<Auto> autos = Constants.getAutoList();
         ArrayList<Auto> sortAutos = new ArrayList();
 
+        sortAutos.add(autos.get(0));
         for (int i = 1; i < autos.size(); ++i) {
             int size = sortAutos.size();
 

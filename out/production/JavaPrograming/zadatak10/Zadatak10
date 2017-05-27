@@ -1,4 +1,12 @@
-1. Skontati svih 9 zadataka.
+1. Napraviti klasu Cips koja ima:
+   Osoba(ime, prezime, godine, mjesto_boravka)
+   mjesto_opstine(String)
+   datum(Date) datum vađenja cipsa
+   opstina(string) mjesto vadjenja cipsa
 
+   a) Napraviti niz cipsova od 5 objakata.
+   b) Ispisati sve cipsove sortirane po datumu vađenja.
+   c) Ispisati sve osobe koje imaju broj godina manje od 33,
+      sortirane po godinama.
+   d) Ispisati sve cipsove koji su izvađeni u tuzli.
 
-Thnks for helps :D

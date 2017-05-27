@@ -1,0 +1,25 @@
+12. Pogledati paket zadatak12. U klasi Zadatak12 ima School objekat.
+    Na osnovu tog objekta ispisati:
+    a) Sve studente koji pripadaju Classroomu sa imenom "First"
+    b) Sve studente koji zive u ulici "Ulica17"
+    c) Sve Classroom-e koji imaju vise od 3 studenta, i ispisati te studente.
+       (student_count je neovisan o broju studenata)
+
+    Ispis:
+
+    Zadatak12 a)
+    First  Armin
+    First  Ervin
+
+    Zadatak12 b)
+    Omar  Ulica17
+    Jasmin  Ulica17
+
+    Zadatak12 c)
+    Third  count: 6
+    Mahir
+    Sabit
+    Jasmin
+
+    Fourth  count: 4
+    Omar

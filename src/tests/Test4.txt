@@ -1,0 +1,28 @@
+1. Koja je razlika između == i equals na string objektu ?
+2. Operator !. Objansiti.
+3. Kako pristupamo članovima klase ?
+4. Modifikatori u javi, i objasniti svaki.
+5. Kako se pozivaju statični metodi na klasi.
+6. Kako se pozivanju ne statični metodi na klasi.
+7. Koliko moze biti public klasa u jednom fajlu?
+8. Koliko moze biti klasa u jednoj klasi ?
+9. Šta će biti ispis sljedeće sekvence koda?
+
+   for(int i = 0;i<10;i++);
+   System.out.println("TEST");
+   for(int i=0;i<=0;i++)
+   System.out.println("Test: " + i);
+   if(true)
+   System.out.println("Test4")
+   else
+   System.out.println("Test4-1");
+
+10. Izbaciti uljeza
+        -Integer
+        -int
+        -float
+        -Long
+        -Radnik
+        -Boolean
+        -Auto
+        -string

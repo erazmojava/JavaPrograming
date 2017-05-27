@@ -1,5 +1,9 @@
 package utils;
 
+import zadatak12.Classroom;
+import zadatak12.Place;
+import zadatak12.School;
+import zadatak12.Student;
 import zadatak9.Auto;
 
 import java.text.SimpleDateFormat;
@@ -37,5 +41,28 @@ public class Constants {
         SimpleDateFormat format =
                 new SimpleDateFormat("dd-MM-yyyy");
         return format.format(date);
+    }
+    public static School getSchool(){
+        School school = new School();
+        Place schoolPlace = new Place("BiH", "Tuzla", 75000, "Franjevačka");
+        ArrayList<Classroom> classrooms = new ArrayList<>();
+        classrooms.add(new Classroom("First", 2, 1));
+        classrooms.add(new Classroom("Second", 3, 2));
+        classrooms.add(new Classroom("Third", 6, 3));
+        classrooms.add(new Classroom("Fourth", 4, 4));
+        school.setName("FirstSchool");
+        school.setPlace(schoolPlace);
+        school.setClassrooms(classrooms);
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student("Armin", 1, new Place("BiH", "Tuzla", 75000, "Ulica55")));
+        students.add(new Student("Amir", 2, new Place("BiH", "Tuzla", 75000, "Ulica11")));
+        students.add(new Student("Ervin", 1, new Place("BiH", "Tuzla", 75000, "Ulica55")));
+        students.add(new Student("Mahir", 3, new Place("BiH", "Tuzla", 75000, "Ulica33")));
+        students.add(new Student("Omar", 4, new Place("BiH", "Tuzla", 75000, "Ulica17")));
+        students.add(new Student("Emin", 2, new Place("BiH", "Tuzla", 75000, "Ulica44")));
+        students.add(new Student("Sabit", 3, new Place("BiH", "Tuzla", 75000, "Ulica44")));
+        students.add(new Student("Jasmin", 3, new Place("BiH", "Tuzla", 75000, "Ulica17")));
+        school.setStudents(students);
+        return school;
     }
 }

@@ -2,7 +2,9 @@ package utils;
 
 import zadatak9.Auto;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -29,5 +31,11 @@ public class Constants {
         autos.add(new Auto("Lexus", 2010, 4, "red", "automatic", "China"));
         autos.add(new Auto("Jaguar", 2017, 8, "blue", "automatic", "Great Brittany"));
         return autos;
+    }
+    public static  String getFormatedDate(Date date){
+        SimpleDateFormat format=
+                new SimpleDateFormat("dd-MM-yyyy");
+        return format.format(date);
+
     }
 }

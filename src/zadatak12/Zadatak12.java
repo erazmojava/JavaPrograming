@@ -37,7 +37,7 @@ public class Zadatak12 {
 
 
         for (Classroom classroom : classrooms) {
-            if (classroom.getStudent_count() > 3) ;{
+            if (classroom.getStudent_count() > 3){
                 System.out.println(classroom.getName() + "   " + classroom.getStudent_count());
 
             }

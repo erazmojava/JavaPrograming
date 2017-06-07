@@ -1,8 +1,8 @@
 16. Napraviti klase:
 
-    Person(name, surname, age, sex, Place(name, zip_code, street, city, country))
+    Person(name, surname, age, sex, Place(zip_code, street, city, country))
     Student(index_number, School(name, Place(), Classroom(name, student_count, classroom_id))
-    Developer(project_number, title, work_hours, salary, School)
+    Developer(project_number, title, work_hours, salary)
     Employee(department, salary, job_type)
 
     Napraviti interface:
@@ -15,7 +15,25 @@
     Napraviti listu od 5 Person-a po izboru:
 
     1. Ispisati sve Studente koji idu u skolu sa imenom "SchoolOne" i koja se nalazi u Tuzli.
-    2. Svakom studentu povecati salary za 100, i sortitati ih po visini salary-a.
+    2. Svakom Developeru povecati salary za 100, i sortitati ih po visini salary-a.
     3. Ispisati sve Person-e cije ime poćinje sa slovom "C", i koja je mlađa od 22 godine
     4. Ispisati sve Person-e koji su instanca CompareStudent
     5. Ispisati Employee-a koji ima platu vecu od 1000, i koji je muškarac.
+
+
+    Person(Mujo, Mujic, 22, male, Place(75000, Street1, Tuzla, BiH))
+    Developer(Hasan, Maliko, 19, female, Place(75000, Street1, Tuzla, BiH), 31, Angular Developer, 3, 4000)
+    Employee(Tito, Broz, 26, male, Place(75200, Street221, Lukavac, BiH), Marketing, 400, Worker)
+    Student(Amer, Hasanovic, 33, male, Place(75020, Street61, Mostar, BiH), II-33/01, School(OneSchool, Place(75000, Street0, Tuzla, BiH), Classroom(First, 33, 1)
+    Developer(Malik, Mali, 40, male, Place(75000, Street1, Tuzla, BiH), 30, Java Developer, 8, 2000)
+
+    pre:
+    git reset --hard
+    git checkout master
+    git pull origin master
+    git checkout -b ime_16
+
+    post:
+    git add .
+    git commit -m "Zadatak 16 solved-ime"
+    git push origin ime_16

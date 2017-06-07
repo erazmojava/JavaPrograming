@@ -4,22 +4,19 @@ package zadatak16;
  * Created by User on 7.6.2017.
  */
 public class Developer extends Person implements SalaryUpdate {
-    @Override
-    public void onSalaryUpdate() {
 
-    }
 
     private int project_number;
     private String title;
     private int work_hours;
     private double salary;
 
-    public Developer(int project_number, String title, int work_hours, double salary) {
+    public Developer(String name, String surname, int age, String sex, Place place, int project_number, String title, int work_hours, double salary) {
+        super(name, surname, age, sex, place);
         this.project_number = project_number;
         this.title = title;
         this.work_hours = work_hours;
         this.salary = salary;
-
     }
 
     public int getProject_number() {
@@ -52,5 +49,10 @@ public class Developer extends Person implements SalaryUpdate {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public void onSalaryUpdate(double bonus) {
+        setSalary(getSalary() + bonus);
     }
 }

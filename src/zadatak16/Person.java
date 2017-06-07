@@ -3,32 +3,23 @@ package zadatak16;
 /**
  * Created by User on 7.6.2017.
  */
-public class Person extends Place implements CompareStudent{
-    @Override
-    public void onStudentCompare() {
-
-    }
+public class Person implements ComparePerson{
 
     private String name;
     private String surname;
     private int age;
     private String sex;
+    private Place place;
 
-    public Person(int zip_code, String street, String city, String country, String name, String surname, int age, String sex) {
-        super(zip_code, street, city, country);
+    public Person(String name, String surname, int age, String sex, Place place) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.sex = sex;
+        this.place = place;
     }
 
-    public Person(String name, String surname, int age, String sex) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.sex = sex;
-    }
-
+    Person(){}
     public String getName() {
         return name;
     }
@@ -60,7 +51,24 @@ public class Person extends Place implements CompareStudent{
     public void setSex(String sex) {
         this.sex = sex;
     }
-    public Person(){}
 
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
+    }
+
+    @Override
+    public int onPersonCompare(Person person) {
+        if (this.age > person.getAge()){
+            return  1;
+        }
+        if (this.age < person.getAge()){
+            return  -1;
+        }
+        return 0;
+    }
 }
 

@@ -4,8 +4,8 @@ package zadatak2;
  * Created by osman on 5/8/17.
  */
 public class Radnik {
-    private String ime;
-    private String prezime;
+    public String ime;
+    protected String prezime;
     private double plata;
     private int godine;
 
@@ -40,7 +40,7 @@ public class Radnik {
         this.prezime = prezime;
     }
 
-    public double getPlata() {
+    protected double getPlata() {
         return this.plata;
     }
 

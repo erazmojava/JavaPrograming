@@ -1,0 +1,10 @@
+13. Napraviti klasu:
+
+    public class Radnik extends Radnik1{
+
+    }
+
+      public class Developer extends Radnik{
+
+        }
+

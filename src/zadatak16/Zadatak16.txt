@@ -1,0 +1,21 @@
+16. Napraviti klase:
+
+    Person(name, surname, age, sex, Place(name, zip_code, street, city, country))
+    Student(index_number, School(name, Place(), Classroom(name, student_count, classroom_id))
+    Developer(project_number, title, work_hours, salary, School)
+    Employee(department, salary, job_type)
+
+    Napraviti interface:
+    SalaryUpdate {onSalaryUpdate(bonus)} na Developeru
+    CompareStudent{onStudentCompare(student)}
+    ComparePerson{onPersonCompare(person)}
+
+
+
+    Napraviti listu od 5 Person-a po izboru:
+
+    1. Ispisati sve Studente koji idu u skolu sa imenom "SchoolOne" i koja se nalazi u Tuzli.
+    2. Svakom studentu povecati salary za 100, i sortitati ih po visini salary-a.
+    3. Ispisati sve Person-e cije ime poćinje sa slovom "C", i koja je mlađa od 22 godine
+    4. Ispisati sve Person-e koji su instanca CompareStudent
+    5. Ispisati Employee-a koji ima platu vecu od 1000, i koji je muškarac.

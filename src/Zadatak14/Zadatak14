@@ -1,0 +1,20 @@
+14.
+    Napraviti klasu Tacka:
+        x-osa(double)
+        y-osa(double)
+
+    Napraviti klasu Kvadrat koja ima
+        stranicu(double)
+        dijagonala(double)
+        Tačku(nasljeđuje)
+        Obim(dounle)
+        Povsrina(double)
+
+    Napraviti klasu Krug koja ima
+            poluprecnik(double)
+            Tačku(nasljeđuje)
+            Obim(dounle)
+            Povsrina(double)
+
+    U main klasi napraviti  listu objekata(koji mogu biti i krug i kvadrat i tačka);
+    Ispisati iz liste sve objekte tipa Krug i njihove osobine.

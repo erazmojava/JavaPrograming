@@ -22,3 +22,12 @@ Test3:
 8. Sabit          0/23         7/10
 
 
+Armin  12/20
+Emin   12/20
+Ervin  11/20
+Enes   10/20
+Mahir  13/20
+Sabit  17/20
+Jasmin 09/20
+Omar   09/20
+Amir   15/20

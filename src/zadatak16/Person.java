@@ -64,11 +64,14 @@ public class Person implements ComparePerson {
         if (this.age > person.getAge()) {
             return 1;
         }
-        if (this.age < person.getAge()){
+        if (this.age < person.getAge()) {
             return -1;
         }
-        if (this.age == person.getAge()){
+        if (this.age == person.getAge()) {
             return 0;
+
         }
+        return 0;
     }
 }
+

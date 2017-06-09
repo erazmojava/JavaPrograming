@@ -54,7 +54,20 @@ public class Student extends Person implements CompareStudent {
 
     @Override
     public int onCompareStudent(Student student) {
-        if
-        return 0;
+
+        if (this.school.equals("Škola34")) {
+            return 1;
+        }
+        if (!this.school.getName().equals("Škola34")) {
+            return -1;
+        }
+        if (this.place.getCity().equals("Tuzla")) {
+            return 1;
+        }
+        if (!this.place.getCity().equals("Tuzla")) {
+            return -1;
+        }
+
+        return 1;
     }
 }

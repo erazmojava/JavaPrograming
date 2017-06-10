@@ -53,15 +53,15 @@ public class Student extends Person implements CompareStudent {
     }
 
     @Override
-    public int onCompareStudent(Student student) {
+    public String onCompareStudent(Student student) {
 
         if (this.school.equals(school.getName())) {
-            return 0;
+            return null;
         }
 
         if (this.place.equals(place.getCity())) {
-            return 0;
+            return null;
         }
-        return 0;
+        return null;
     }
 }

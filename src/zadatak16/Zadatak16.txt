@@ -16,7 +16,7 @@
 
     1. Ispisati sve Studente koji idu u skolu sa imenom "SchoolOne" i koja se nalazi u Tuzli.
     2. Svakom Developeru povecati salary za 100, i sortitati ih po visini salary-a.
-    3. Ispisati sve Person-e cije ime poćinje sa slovom "C", i koja je mlađa od 22 godine
+    3. Ispisati sve Person-e cije ime počinje sa slovom "C", i koja je mlađa od 22 godine
     4. Ispisati sve Person-e koji su instanca CompareStudent
     5. Ispisati Employee-a koji ima platu vecu od 1000, i koji je muškarac.
 

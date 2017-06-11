@@ -1,30 +1,33 @@
-package zadatak12;
-
-import zadatak16.Person;
+package zadatak16;
 
 /**
- * Created by osman on 5/27/17.
+ * Created by pc on 7.6.2017.
  */
-public class Student extends Person {
+public class Classroom {
     private String name;
+    private int student_count;
     private int classroom_id;
-    private Place place;
 
-    public Student(String name, int classroom_id, Place place) {
+    public Classroom(String name, int student_count, int classroom_id) {
         this.name = name;
+        this.student_count = student_count;
         this.classroom_id = classroom_id;
-        this.place = place;
-
     }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getStudent_count() {
+        return student_count;
+    }
+
+    public void setStudent_count(int student_count) {
+        this.student_count = student_count;
     }
 
     public int getClassroom_id() {
@@ -34,7 +37,4 @@ public class Student extends Person {
     public void setClassroom_id(int classroom_id) {
         this.classroom_id = classroom_id;
     }
-
-
 }
-

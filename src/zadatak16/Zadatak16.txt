@@ -1,7 +1,7 @@
 16. Napraviti klase:
 
     Person(name, surname, age, sex, Place(zip_code, street, city, country))
-    Student(index_number, School(name, Place(), Classroom(name, student_count, classroom_id))
+    Student(index_number, School(name, Place(), Classroom(name, student_count, ))
     Developer(project_number, title, work_hours, salary)
     Employee(department, salary, job_type)
 

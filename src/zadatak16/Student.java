@@ -1,30 +1,30 @@
 package zadatak16;
 
-import zadatak12.Classroom;
+import zadatak16.School;
+import zadatak16.Classroom;
+
 
 /**
  * Created by Mahir on 07.06.2017..
  */
 public class Student extends Person implements CompareStudent {
 
-    private int index_number;
+    private String index_number;
     private School school;
-    private Place place;
     private Classroom classroom;
 
-    public Student(String name, String surname, int age, String sex, Place place, int index_number, School school, Place place1, Classroom classroom) {
-        super(name, surname, age, sex, place);
+    public Student(String name, String surname, int age, String sex, double zip_code, String street, String city, String country, String index_number, School school, Classroom classroom) {
+        super(name, surname, age, sex, zip_code, street, city, country);
         this.index_number = index_number;
         this.school = school;
-        this.place = place1;
         this.classroom = classroom;
     }
 
-    public int getIndex_number() {
+    public String getIndex_number() {
         return index_number;
     }
 
-    public void setIndex_number(int index_number) {
+    public void setIndex_number(String index_number) {
         this.index_number = index_number;
     }
 
@@ -34,14 +34,6 @@ public class Student extends Person implements CompareStudent {
 
     public void setSchool(School school) {
         this.school = school;
-    }
-
-    public Place getPlace() {
-        return place;
-    }
-
-    public void setPlace(Place place) {
-        this.place = place;
     }
 
     public Classroom getClassroom() {
@@ -59,9 +51,7 @@ public class Student extends Person implements CompareStudent {
             return null;
         }
 
-        if (this.place.equals(place.getCity())) {
-            return null;
-        }
+
         return null;
     }
 }

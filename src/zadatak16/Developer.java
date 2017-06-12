@@ -10,8 +10,8 @@ public class Developer extends Person implements SalaryUpdate {
     private double work_hours;
     private double salary;
 
-    public Developer(String name, String surname, int age, String sex, Place place, int project_number, String title, double work_hours, double salary) {
-        super(name, surname, age, sex, place);
+    public Developer(String name, String surname, int age, String sex, double zip_code, String street, String city, String country, int project_number, String title, double work_hours, double salary) {
+        super(name, surname, age, sex, zip_code, street, city, country);
         this.project_number = project_number;
         this.title = title;
         this.work_hours = work_hours;

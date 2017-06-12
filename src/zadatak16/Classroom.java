@@ -3,13 +3,13 @@ package zadatak16;
 /**
  * Created by Mahir on 07.06.2017..
  */
-public class Classrom {
+public class Classroom {
 
     private String name;
     private double student_count;
     private double clasroom_id;
 
-    public Classrom(String name, double student_count, double clasroom_id) {
+    public Classroom(String name, double student_count, double clasroom_id) {
         this.name = name;
         this.student_count = student_count;
         this.clasroom_id = clasroom_id;

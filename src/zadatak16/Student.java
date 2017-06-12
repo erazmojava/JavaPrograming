@@ -1,23 +1,30 @@
 package zadatak16;
 
-/**
- * Created by User on 7.6.2017.
- */
-public class Student extends Person implements CompareStudent{
-    private int index_number;
-    private School school;
+import zadatak16.School;
+import zadatak16.Classroom;
 
-    public Student(String name, String surname, int age, String sex, Place place, int index_number, School school) {
-        super(name, surname, age, sex, place);
+
+/**
+ * Created by Mahir on 07.06.2017..
+ */
+public class Student extends Person implements CompareStudent {
+
+    private String index_number;
+    private School school;
+    private Classroom classroom;
+
+    public Student(String name, String surname, int age, String sex, double zip_code, String street, String city, String country, String index_number, School school, Classroom classroom) {
+        super(name, surname, age, sex, zip_code, street, city, country);
         this.index_number = index_number;
         this.school = school;
+        this.classroom = classroom;
     }
 
-    public int getIndex_number() {
+    public String getIndex_number() {
         return index_number;
     }
 
-    public void setIndex_number(int index_number) {
+    public void setIndex_number(String index_number) {
         this.index_number = index_number;
     }
 
@@ -29,14 +36,22 @@ public class Student extends Person implements CompareStudent{
         this.school = school;
     }
 
+    public Classroom getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(Classroom classroom) {
+        this.classroom = classroom;
+    }
+
     @Override
-    public int onStudentCompare(Student student) {
-        if (this.index_number > student.getIndex_number()){
-            return  1;
+    public String onCompareStudent(Student student) {
+
+        if (this.school.equals(school.getName())) {
+            return null;
         }
-        if (this.index_number < student.getIndex_number()){
-            return  -1;
-        }
-        return 0;
+
+
+        return null;
     }
 }

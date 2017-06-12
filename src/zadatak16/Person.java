@@ -1,25 +1,25 @@
 package zadatak16;
 
 /**
- * Created by User on 7.6.2017.
+ * Created by Mahir on 07.06.2017..
  */
-public class Person implements ComparePerson{
+public class Person extends Place implements ComparePerson {
 
     private String name;
     private String surname;
     private int age;
     private String sex;
-    private Place place;
 
-    public Person(String name, String surname, int age, String sex, Place place) {
+
+    public Person(String name, String surname, int age, String sex, double zip_code, String street, String city, String country) {
+        super(zip_code, street, city, country);
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.sex = sex;
-        this.place = place;
     }
 
-    Person(){}
+
     public String getName() {
         return name;
     }
@@ -52,21 +52,18 @@ public class Person implements ComparePerson{
         this.sex = sex;
     }
 
-    public Place getPlace() {
-        return place;
-    }
-
-    public void setPlace(Place place) {
-        this.place = place;
-    }
 
     @Override
     public int onPersonCompare(Person person) {
-        if (this.age > person.getAge()){
-            return  1;
+        if (this.age > person.getAge()) {
+            return 1;
         }
-        if (this.age < person.getAge()){
-            return  -1;
+        if (this.age < person.getAge()) {
+            return -1;
+        }
+        if (this.age == person.getAge()) {
+            return 0;
+
         }
         return 0;
     }

@@ -1,8 +1,8 @@
 package zadatak16;
 
 /**
- * Created by User on 7.6.2017.
+ * Created by Mahir on 07.06.2017..
  */
 public interface ComparePerson {
-    int onPersonCompare(Person person);
+     int onPersonCompare (Person person);
 }

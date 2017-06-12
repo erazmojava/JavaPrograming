@@ -1,29 +1,26 @@
 package zadatak16;
 
 /**
- * Created by User on 7.6.2017.
+ * Created by Mahir on 07.06.2017..
  */
 public class Place {
-    private int zip_code;
+    private double zip_code;
     private String street;
     private String city;
     private String country;
 
-    public Place(int zip_code, String street, String city, String country) {
+    public Place(double zip_code, String street, String city, String country) {
         this.zip_code = zip_code;
         this.street = street;
         this.city = city;
         this.country = country;
     }
-    public Place(){
 
-    }
-
-    public int getZip_code() {
+    public double getZip_code() {
         return zip_code;
     }
 
-    public void setZip_code(int zip_code) {
+    public void setZip_code(double zip_code) {
         this.zip_code = zip_code;
     }
 

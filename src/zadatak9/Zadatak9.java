@@ -7,6 +7,7 @@ package zadatak9;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
 import utils.Constants;
 
 import javax.crypto.AEADBadTagException;
@@ -17,32 +18,34 @@ public class Zadatak9 {
 
     public static void main(String[] args) {
         ArrayList<Auto> autos = Constants.getAutoList();
-        ArrayList<Auto> sortAutos = new ArrayList();
+        ArrayList<Auto> yearAutos = new ArrayList();
 
-        sortAutos.add(autos.get(0));
         for (int i = 1; i < autos.size(); ++i) {
-            int size = sortAutos.size();
+            int size = yearAutos.size();
 
-            for (int j = 0; j < sortAutos.size(); ++j) {
-                if ((autos.get(i)).getYear() > (sortAutos.get(j)).getYear()) {
-                    sortAutos.add(j, autos.get(i));
+            for (int j = 0; j < yearAutos.size(); ++j) {
+                if ((autos.get(i)).getYear() > (yearAutos.get(j)).getYear()) {
+                    yearAutos.add(j, autos.get(i));
                     break;
                 }
             }
 
-            if (sortAutos.size() == size) {
-                sortAutos.add(autos.get(i));
+
+            if (yearAutos.size() == size) {
+                yearAutos.add(autos.get(i));
             }
         }
 
         System.out.println("Sortirana auta po godini: ");
-        for (Auto auto : sortAutos) {
+        for (Auto auto : yearAutos) {
             System.out.println(auto.getYear() + "  " + auto.getName());
         }
 
         ArrayList<Auto> redAutos = new ArrayList<>();
+
         System.out.println();
         System.out.println("Crvena auta: ");
+
         for (Auto auto : autos) {
             if (auto.getColor().equals("red")) {
                 redAutos.add(auto);
@@ -51,18 +54,55 @@ public class Zadatak9 {
         for (Auto auto : redAutos) {
             System.out.println(auto.getColor() + "  " + auto.getName());
         }
+        ArrayList<Auto> transmisiontypeAutos = new ArrayList<>();
 
-        ArrayList<Auto> italijaAutos = new ArrayList<>();
-        System.out.println();
-        System.out.println("Auta koja nisu Italijanska: ");
         for (Auto auto : autos) {
-            if (!auto.getCountry().equals("Italy")) {
-                italijaAutos.add(auto);
+            if (auto.getTransmission_type().equals("manual")) {
+                transmisiontypeAutos.add(auto);
             }
         }
-            for (Auto auto1 : italijaAutos) {
-                System.out.println((auto1.getCountry() + "  " + auto1.getName()));
-            }
-        }
-    }
+        System.out.println();
+        System.out.println("Sortirana auta po transmision type: ");
 
+        for (Auto auto : transmisiontypeAutos) {
+            System.out.println(auto.getTransmission_type() + "  " + auto.getName());
+        }
+
+        ArrayList<Auto> countryAutos = new ArrayList();
+
+        for (int i = 1; i < autos.size(); ++i) {
+            int size = countryAutos.size();
+
+            for (int j = 0; j < countryAutos.size(); ++j) {
+                if ((autos.get(i)).getYear() > (countryAutos.get(j)).getYear()) {
+                    countryAutos.add(j, autos.get(i));
+                    break;
+                }
+            }
+
+            if (countryAutos.size() == size) {
+                countryAutos.add(autos.get(i));
+            }
+        }
+        System.out.println();
+        System.out.println("Sortirana auta po godini i zemlji podrijekla: ");
+        for (Auto auto : countryAutos) {
+            System.out.println(auto.getYear() + "  " + auto.getCountry() + "  " + auto.getName());
+        }
+        ArrayList<Auto> transmisionstepAutos = new ArrayList<>();
+
+        for (Auto auto : autos) {
+            if (auto.getTransmission_steps() == 4) {
+                transmisionstepAutos.add(auto);
+            }
+        }
+        System.out.println();
+        System.out.println("Sortirana auta po transmision step: ");
+
+        for (Auto auto : transmisionstepAutos) {
+            System.out.println(auto.getTransmission_steps() + "  " + auto.getName());
+
+        }
+
+    }
+}

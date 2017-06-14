@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Zadatak14 {
     public static void main(String[] args) {
-        ArrayList<Tacka> listaObjekata = new ArrayList<>();
+        ArrayList<Object> listaObjekata = new ArrayList<>();
         listaObjekata.add(new Tacka(12, 123));
         listaObjekata.add(new Krug(122, 123, 234, 123, 123));
         listaObjekata.add(new Kvadrat(13, 34, 54, 123, 43, 45));

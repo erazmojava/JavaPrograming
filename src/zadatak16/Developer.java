@@ -51,7 +51,13 @@ public class Developer extends Person implements SalaryUpdate {
     }
 
     @Override
-    public void onSalaryUpdate(double bonus) {
-        setSalary(getSalary()+bonus);
+    public int onSalaryUpdate(double bonus) {
+        setSalary(getSalary() + bonus);
+        return 0;
     }
-}
+
+    }
+
+
+
+

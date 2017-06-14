@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by FSC on 14.6.2017.
  */
-public class Restaurant extends Location {
+public class Restaurant extends Location implements AddMenu{
 
     private double id;
     private String ime;
@@ -48,7 +48,11 @@ public class Restaurant extends Location {
         return menus;
     }
 
-    public void setMenus(ArrayList<Menu> menus) {
-        this.menus = menus;
+
+    @Override
+    public void onMenuAdded(Menu menu) throws NameDuplicateException {
+        this.getMenus().add
+        throw new NameDuplicateException("hasdhjhdjs");
+
     }
 }

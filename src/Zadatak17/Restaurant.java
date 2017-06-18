@@ -1,11 +1,12 @@
 package Zadatak17;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Mahir on 14.06.2017..
  */
-public class Restaurant {
+public class Restaurant implements AddMenu {
 
     private int id;
     private String name;
@@ -13,7 +14,7 @@ public class Restaurant {
     private ArrayList<Menu> menus;
     private Location location;
 
-    public Restaurant(int id, String name, int worker_count, ArrayList<Menu> menus, Location location) {
+    public Restaurant(int id, String name, int worker_count, ArrayList<Menu> menus, Date date, Location location) {
         this.id = id;
         this.name = name;
         this.worker_count = worker_count;
@@ -60,6 +61,16 @@ public class Restaurant {
     public void setLocation(Location location) {
         this.location = location;
     }
-}
+
+    @Override
+    public void onMenuAdded(Menu menu) throws NameDuplicateException {
+        if(this.getMenus().contains(menu))
+            throw new NameDuplicateException("Message");
+        else
+            this.getMenus().add(menu);
+    }
+
+    }
+
 
 

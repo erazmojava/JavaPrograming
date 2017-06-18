@@ -3,10 +3,11 @@ package Zadatak17;
 import java.util.Calendar;
 import java.util.Date;
 
+
 /**
  * Created by Mahir on 14.06.2017..
  */
-public class Menu {
+public class Menu implements AddMenu {
     private int id;
     private String name;
     private double restaurant_id;
@@ -49,6 +50,11 @@ public class Menu {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public void onMenuAdded(Menu menu) throws NameDuplicateException {
+
     }
 }
 

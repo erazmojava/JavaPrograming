@@ -7,12 +7,12 @@ import java.util.ArrayList;
  */
 public class Restaurant extends Location implements AddMenu{
 
-    private double id;
+    private int id;
     private String ime;
     private double worker_count;
     private ArrayList<Menu> menus;
 
-    public Restaurant(double latitude, double longitude, String city, String country, double zip_code, double id, String ime, double worker_count, ArrayList<Menu> menus) {
+    public Restaurant(double latitude, double longitude, String city, String country, double zip_code, int id, String ime, double worker_count, ArrayList<Menu> menus) {
         super(latitude, longitude, city, country, zip_code);
         this.id = id;
         this.ime = ime;
@@ -24,7 +24,7 @@ public class Restaurant extends Location implements AddMenu{
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -51,8 +51,9 @@ public class Restaurant extends Location implements AddMenu{
 
     @Override
     public void onMenuAdded(Menu menu) throws NameDuplicateException {
-        this.getMenus().add
-        throw new NameDuplicateException("hasdhjhdjs");
-
+        if(this.getMenus().contains(menu))
+            throw new NameDuplicateException("Message");
+        else
+            this.getMenus().add(menu);
     }
 }

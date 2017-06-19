@@ -5,14 +5,12 @@ import java.util.Date;
 /**
  * Created by FSC on 14.6.2017.
  */
-public class Menu {
+public class Menu implements AddMenu {
 
-    private  int id;
+    private int id;
     private String name;
     private double restoraunt_id;
     private Date date;
-
-
 
 
     public Menu(int id, String name, double restoraunt_id, Date date) {
@@ -53,5 +51,11 @@ public class Menu {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    @Override
+    public void onMenuAdded(Menu menu) throws NameDuplicateException {
+
+    }
+
 }
 

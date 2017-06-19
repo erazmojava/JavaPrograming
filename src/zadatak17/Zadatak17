@@ -1,0 +1,25 @@
+17. Napraviti klasu:
+
+    Menu(id, name, restaurant_id, date)
+    Restaurant(id, name, location, worker_count, menus(ArrayList<Menu>)
+    Ne moze se unijeti dva menu-a sa istim datumom
+    Location(latitude, longitude, city, country, zip_code)
+
+
+
+
+   1. Napraviti listu od 3 restorana, i pronaci sve menu-e koji su izdati
+    u 10-om mjesecu.
+
+    ispis:
+    Datum ime_restorana ime_menua
+
+
+   2. Napraviti Interface za dodavanje novog menu-a za restoran. U slucaju da
+      postoji u lisiti menu sa identicnim datumom kako novi menu, baciti exception
+      Napraviti NameDuplicateException klasu i nju throw-ati.
+      hvatiti exception prilkom dodavanja
+
+      Ispis:
+      pije dodavanja i posle dodavanja menu-a
+      Ime retorana broj_menu-a

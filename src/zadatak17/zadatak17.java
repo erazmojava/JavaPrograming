@@ -25,6 +25,7 @@ public class zadatak17 {
         restoraunts.get(2).getMenus().add(new Menu(3,"menu3",3,new Date(2017,10,17)));
 
 
+
         for (Restaurant restaurant : restoraunts){
             for (Menu menu : restaurant.getMenus()){
                 if (menu.getDate().getMonth()==10){
@@ -35,6 +36,17 @@ public class zadatak17 {
             }
 
         }
-
+        AddMenu addMenu =  new Menu(4,"menu4",1,new Date(2017,10,14));
+        for (Restaurant restaurant : restoraunts) {
+            for (Menu menu1 : restaurant.getMenus()) {
+                try {
+                    if (addMenu.equals(menu1.getDate().getDate())) {
+                    }
+                    throw new NameDuplicateException();
+                } catch (NameDuplicateException a) {
+                    a.printStackTrace();
+                }
+            }
+        }
     }
 }

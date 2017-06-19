@@ -56,6 +56,11 @@ public class Menu implements AddMenu {
     public void onMenuAdded(Menu menu) throws NameDuplicateException {
 
     }
-}
+
+
+
+    }
+
+
 
 

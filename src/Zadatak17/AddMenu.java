@@ -6,7 +6,8 @@ package Zadatak17;
 public interface AddMenu {
             void onMenuAdded (Menu menu) throws NameDuplicateException;
 
-    }
+
+}
 
 
 

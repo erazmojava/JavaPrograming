@@ -64,13 +64,16 @@ public class Restaurant implements AddMenu {
 
     @Override
     public void onMenuAdded(Menu menu) throws NameDuplicateException {
-        if(this.getMenus().contains(menu))
-            throw new NameDuplicateException("Message");
-        else
-            this.getMenus().add(menu);
-    }
+        if (this.getMenus().add(menu)){
+            throw new NameDuplicateException("Dupli meni");
 
+        }
     }
+}
+
+
+
+
 
 
 

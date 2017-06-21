@@ -30,5 +30,11 @@ public class Zadatak17 {
                 new Date(2017,10,22)));
         restaurants.get(1).getMenus().add(new Menu("NAme",15l, 1l,
                 new Date(2017,10,22)));
+
+        try {
+            restaurants.get(0).onAddedMenu(new Menu());
+        } catch (NameDuplicateException e) {
+           System.out.println("MESSAGE: " + e.getMessage());
+        }
     }
 }

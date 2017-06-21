@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by osman on 6/14/17.
  */
-public class Restaurant {
+public class Restaurant implements AddMenu{
     private Long id;
     private int worker_count;
     private Location location;
@@ -58,5 +58,15 @@ public class Restaurant {
 
     public void setMenus(ArrayList<Menu> menus) {
         this.menus = menus;
+    }
+
+    @Override
+    public void onAddedMenu(Menu menu) throws NameDuplicateException {
+        for (Menu menu1 : this.getMenus()){
+            if (menu.getDate().getTime() == menu1.getDate().getTime()){
+                throw new NameDuplicateException("Dupicate");
+            }
+        }
+        this.getMenus().add(menu);
     }
 }

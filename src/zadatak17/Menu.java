@@ -17,4 +17,36 @@ public class Menu {
         this.restaurant_id = restaurant_id;
         this.date = date;
     }
+    public Menu(){}
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getRestaurant_id() {
+        return restaurant_id;
+    }
+
+    public void setRestaurant_id(Long restaurant_id) {
+        this.restaurant_id = restaurant_id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

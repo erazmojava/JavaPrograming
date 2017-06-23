@@ -3,7 +3,7 @@ package Kvadratna;
 import java.util.Scanner;
 
 /**
-  Created by Omar on 22.06.2017..
+ * Created by Omar on 22.06.2017..
  */
 public class Kvadratna {
 
@@ -52,15 +52,15 @@ public class Kvadratna {
             x1 = (-b + Math.sqrt(d)) / 2 * a;
             x2 = (-b - Math.sqrt(d)) / 2 * a;
             System.out.println("Funkcija ima 2 rjesenja: ");
-            System.out.println("x1=" + x1 +"   " + "x2=" + x2);
+            System.out.println("x1=" + x1 + "   " + "x2=" + x2);
         }
         if (d < 0) {
 
-            d = ((b * b) - 4 * a * c)*(-1);
+            d = ((b * b) - 4 * a * c) * (-1);
 
             System.out.println("Rjesenja funkcije nisu realna");
-            System.out.println("x1=" + (-b+"+" + "y*y" + Math.sqrt(d))+"/"+2*a );
-            System.out.println("x2=" + (-b+"-" + "y*y" + Math.sqrt(d))+"/"+2*a );
+            System.out.println("x1=" + (-b + "+" + "y" + " * " + Math.sqrt(d)) + "/" + 2 * a);
+            System.out.println("x2=" + (-b + "-" + "y" + " * " + Math.sqrt(d)) + "/" + 2 * a);
 
         }
 

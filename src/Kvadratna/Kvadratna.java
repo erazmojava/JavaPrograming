@@ -17,7 +17,7 @@ public class Kvadratna {
         double d;
         double x1 = 0;
         double x2 = 0;
-
+        String y;
 
         System.out.printf("Prvi broj (a): ");
         while (s.hasNext()) {
@@ -40,21 +40,30 @@ public class Kvadratna {
 
         d = ((b * b) - 4 * a * c);
 
-        if (d < 0) {
-            System.out.println("Rjesenja funkcije nisu realna");
-        }
+
         if (d == 0) {
             x1 = -b / 2 * a;
             x2 = x1;
             System.out.println("Funkcija ima jedno rjesenje x1=x2=" + x1);
+
         }
 
         if (d > 0) {
             x1 = (-b + Math.sqrt(d)) / 2 * a;
             x2 = (-b - Math.sqrt(d)) / 2 * a;
+            System.out.println("Funkcija ima 2 rjesenja: ");
+            System.out.println("x1=" + x1 +"   " + "x2=" + x2);
         }
-        System.out.println("Funkcija ima 2 rjesenja: ");
-        System.out.println("x1=" + x1 +"   " + "x2=" + x2);
+        if (d < 0) {
+
+            d = ((b * b) - 4 * a * c)*(-1);
+
+            System.out.println("Rjesenja funkcije nisu realna");
+            System.out.println("x1=" + (-b+"+" + "y*y" + Math.sqrt(d))+"/"+2*a );
+            System.out.println("x2=" + (-b+"-" + "y*y" + Math.sqrt(d))+"/"+2*a );
+
+        }
+
 
     }
 }

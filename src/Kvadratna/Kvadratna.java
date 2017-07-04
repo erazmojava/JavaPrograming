@@ -17,7 +17,7 @@ public class Kvadratna {
         double d;
         double x1 = 0;
         double x2 = 0;
-        String y;
+
 
         System.out.printf("Prvi broj (a): ");
         while (s.hasNext()) {
@@ -59,8 +59,8 @@ public class Kvadratna {
             d = ((b * b) - 4 * a * c) * (-1);
 
             System.out.println("Rjesenja funkcije nisu realna");
-            System.out.println("x1=" + (-b + "+" + "y" + " * " + Math.sqrt(d)) + "/" + 2 * a);
-            System.out.println("x2=" + (-b + "-" + "y" + " * " + Math.sqrt(d)) + "/" + 2 * a);
+            System.out.println("x1=" + (-b + "+" + "y" + "*" + Math.sqrt(d)) + "/" + 2 * a);
+            System.out.println("x2=" + (-b + "-" + "y" + "*" + Math.sqrt(d)) + "/" + 2 * a);
 
         }
 
